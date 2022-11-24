@@ -1,0 +1,35 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+  <div class="figure">
+    <figure></figure>
+  </div>
+  <div class="container-logo m-auto">
+    <ion-img src="assets/img/logo.svg"></ion-img>
+  </div>
+  <div class="container-form">
+    <div>
+      <ion-input class="input" placeholder="Full Name" required clearInput color="fermtertiary">
+        <ion-icon name="people-outline"  color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div class="mt-15">
+      <ion-input class="input" placeholder="Email" required clearInput color="fermtertiary">
+        <ion-icon name="mail-outline" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div class="mt-15">
+      <ion-input class="input" placeholder="PassWord" required clearInput color="fermtertiary">
+        <ion-icon name="lock-closed-outline" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div class="container-submit">
+      <button  class="submit-button"><ion-text color="fermwhite"> <ion-icon name="arrow-forward-outline"></ion-icon> CREATE ACCOUNT</ion-text></button>
+    </div>
+    <div class="container-create">
+      <p class="text-center"><ion-text color="fermtertiary" (click)="goToLogin()">Sign In</ion-text></p>
+    </div>
+  </div>
+</ion-content>
