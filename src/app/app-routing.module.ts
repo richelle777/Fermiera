@@ -43,7 +43,15 @@ const routes: Routes = [
   {
     path: 'tab/setting',
     loadChildren: () => import('./views/setting/setting.module').then( m => m.SettingPageModule)
+  },  {
+    path: 'details-fruits',
+    loadChildren: () => import('./views/details-fruits/details-fruits.module').then( m => m.DetailsFruitsPageModule)
   },
+  {
+    path: 'panier',
+    loadChildren: () => import('./views/panier/panier.module').then( m => m.PanierPageModule)
+  },
+
 ];
 
 @NgModule({
