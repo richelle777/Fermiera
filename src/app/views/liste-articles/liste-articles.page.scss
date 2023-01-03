@@ -1,0 +1,25 @@
+.input{
+    padding: 10px!important;
+    background-color: var(--ion-color-fermgreenlight);
+    font-size: 15px;
+    border-radius: 19px;
+    height: 42px;  
+}
+.font-12{
+    font-size: 12px;
+}
+.input{
+    padding: 10px!important;
+    background-color: var(--ion-color-fermgreenlight);
+    font-size: 15px;
+    border-radius: 19px;
+    height: 42px;  
+}
+.icon{
+    font-size: 22px;
+    padding-right: 10px;
+}
+.input:focus-within{
+   border: 1px solid;
+   border-color: var(--ion-color-fermsecondary);
+}

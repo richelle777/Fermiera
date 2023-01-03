@@ -91,7 +91,12 @@ const routes: Routes = [
   {
     path: 'setting',
     loadChildren: () => import('./views/setting/setting.module').then( m => m.SettingPageModule)
+  },
+  {
+    path: 'liste-articles',
+    loadChildren: () => import('./views/liste-articles/liste-articles.module').then( m => m.ListeArticlesPageModule)
   }
+
 ];
 
 @NgModule({
