@@ -1,8 +1,12 @@
+@font-face {
+    font-family: Poppins;
+    src: url('../assets/fonts/Poppins-Regular.ttf');
+}
+*{
+    font-family: Poppins;
+}
 .m-auto{
     margin: auto;
-}
-.d-flex{
-    display: flex;
 }
 .text-center{
     text-align: center;
@@ -12,6 +16,9 @@
 }
 .w-full{
     width: 100%;
+}
+.h-full{
+    height: 100%;
 }
 .p-25{
     padding: 25px;
@@ -28,9 +35,6 @@
 }
 .justify-between{
     justify-content: space-between;
-}
-.m-auto{
-    margin: auto;
 }
 .text-white{
     color:var(--ion-color-rmwhite)
@@ -56,12 +60,16 @@
 .p-20{
     padding: 20px;
 }
+.p-10{
+    padding: 10px;
+}
 .l-30{
     line-height: 30px;
 }
 .header-ios ion-toolbar:last-of-type {
-    --border-width: 0 0 0px; 
+    --border-width: 0 0 0px!important; 
 }
+
 .mt-10{
     margin-top: 10px;
 }
@@ -98,5 +106,5 @@
 }
 ion-toolbar, ion-content{
     --background: var(--ion-color-fermgray);
-    --border-width:0px!important;
+    // --border-width:0px!important;
 }

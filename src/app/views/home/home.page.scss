@@ -51,9 +51,8 @@ ion-card{
     height: 200px;
 }
 .img-cat{
-    width: 150px;
-    height: 150px;
-    margin: auto;
+    width: 120px;
+    height: 120px;
 }
 .add-icon{
     float: right;
@@ -65,5 +64,13 @@ p{
 .bloc-livraison{
     background: linear-gradient(90deg, rgba(252, 158, 8, 0.19), rgba(255, 167, 0, 1));
     height: 170px;
+}
+.livraison-title{
+    font-size: 20px;
+    color: var(--ion-color-light);
+}
+.img-livraison{
+    width : 100px;
+    height : 100px;
 }
 
