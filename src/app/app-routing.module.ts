@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./views/home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'tab/home',
-    loadChildren: () => import('./views/home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'tab',
     loadChildren: () => import('./tab/tab.module').then( m => m.TabPageModule)
   },
@@ -33,17 +29,9 @@ const routes: Routes = [
     loadChildren: () => import('./views/basket/basket.module').then( m => m.BasketPageModule)
   },
   {
-    path: 'tab/basket',
-    loadChildren: () => import('./views/basket/basket.module').then( m => m.BasketPageModule)
-  },
-  {
     path: 'setting',
     loadChildren: () => import('./views/setting/setting.module').then( m => m.SettingPageModule)
-  },
-  {
-    path: 'tab/setting',
-    loadChildren: () => import('./views/setting/setting.module').then( m => m.SettingPageModule)
-  },
+  }
 ];
 
 @NgModule({

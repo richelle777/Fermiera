@@ -25,18 +25,5 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.m-auto{
-    margin: auto;
-}
-.d-flex{
-    display: flex;
-}
-.text-center{
-    text-align: center;
-}
-.text-bold{
-    font-weight: bold;
-}
-.w-full{
-    width: 100%;
-}
+@import "theme/style.scss";
+

@@ -1,85 +1,111 @@
 <ion-header>
-  <ion-toolbar class="bg-content">
-    <ion-title color="blanc">Accueil</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button color="blanc"></ion-menu-button>
-    </ion-buttons>
+  <ion-toolbar class="px-18">
+    <div class="d-flex">
+      <div>
+        <ion-buttons>
+          <ion-menu-button color="dark"></ion-menu-button>
+        </ion-buttons>
+      </div>
+      <div>
+        <ion-title color="blanc">Accueil</ion-title>
+      </div>
+      <!-- <div>
+        <span><ion-text color="blanc"  slot="end">ST</ion-text></span>
+      </div> -->
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-content">
-  <p class="text-bold title-welcome">Hello, Bienvenue sur <ion-text color="fermorange" class="mt-10">
-      <span>FERMIERA</span></ion-text>
-  </p>
-  <div>
-    <ion-input class="input text-bold" placeholder="Search" clearInput>
-      <ion-icon name="search-outline" class="icon"></ion-icon>
-    </ion-input>
-  </div>
-  <div class="section1-fruit">
-    <ion-label class="section1-fruit-text">100% Bio, produit par notre terre</ion-label>
-    <ion-img src="assets/img/fresh2.png"></ion-img>
-  </div>
-  <div>
-    <p class="text-bold pl-14 mt-47">Liste des <ion-text color="fermorange">categories</ion-text>
-    </p>
-    <div class="d-flex test">
-      <ion-card color="fermgreendark" class="content-cat">
-        <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
-        <ion-text class="text-center" color="fermwhite">
-          <p>Legumes</p>
-        </ion-text>
-      </ion-card>
-      <ion-card color="fermgreendark" class="content-cat">
-        <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
-        <ion-text class="text-center" color="fermwhite">
-          <p>Legumes</p>
-        </ion-text>
-      </ion-card>
-      <ion-card color="fermgreendark" class="content-cat">
-        <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
-        <ion-text class="text-center" color="fermwhite">
-          <p>Legumes</p>
-        </ion-text>
-      </ion-card>
+<ion-content>
+  <div class="px-25">
+    <!-- <h1 class="text-bold title-welcome">Hello, Bienvenue sur <h1><ion-text color="fermorange" class="mt-10">
+        <span>FERMIERA</span></ion-text></h1>
+    </h1> -->
+    <div class="mt-25">
+      <ion-input class="input text-bold" placeholder="Search" clearInput>
+        <ion-icon name="search-outline" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div class="section1-fruit mt-25">
+      <ion-label class="section1-fruit-text text-bold">100% Bio, produit par notre terre</ion-label>
+      <ion-img src="assets/img/fresh2.png"></ion-img>
     </div>
     <div>
+      <p class="text-bold pl-14 mt-47">Liste des <ion-text color="fermorange">categories</ion-text>
+      </p>
+      <div class="d-flex scroll">
+        <ion-card color="fermgreendark" class="content-cat br-25">
+          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>Legumes</p>
+          </ion-text>
+        </ion-card>
+        <ion-card color="fermgreendark" class="content-cat br-25">
+          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>Legumes</p>
+          </ion-text>
+        </ion-card>
+        <ion-card color="fermgreendark" class="content-cat br-25">
+          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>Legumes</p>
+          </ion-text>
+        </ion-card>
+      </div>
+      <div>
 
+      </div>
+      <div>
+
+      </div>
     </div>
     <div>
+      <ion-card class="bloc-livraison br-25">
+        <div class="d-flex">
+          <div>
 
+          </div>
+          <div>
+            <span>
+              <ion-text>
+                Livraison gratuite rapide et efficace
+              </ion-text>
+            </span>
+          </div>
+        </div>
+      </ion-card>
     </div>
+    <!-- <div>
+      <p class="text-bold pl-14 mt-47">Nos <ion-text color="fermorange">meilleurs</ion-text> produits
+      </p>
+      <div class="d-flex container-cat">
+        <ion-card class="content-cat">
+          <ion-badge class="add-icon" color="fermwhite"><ion-icon name="add-circle-outline"></ion-icon></ion-badge>
+          <ion-img src="assets/img/strawberry@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>Legumes</p>
+          </ion-text>
+        </ion-card>
+        <ion-card color="fermgreendark" class="content-cat">
+          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>Legumes</p>
+          </ion-text>
+        </ion-card>
+        <ion-card color="fermgreendark" class="content-cat">
+          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>Legumes</p>
+          </ion-text>
+        </ion-card>
+      </div>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+    </div> -->
   </div>
-  <div>
-    <p class="text-bold pl-14 mt-47">Nos <ion-text color="fermorange">meilleurs</ion-text> produits
-    </p>
-    <div class="d-flex container-cat">
-      <ion-card class="content-cat">
-        <ion-badge class="add-icon" color="fermwhite"><ion-icon name="add-circle-outline"></ion-icon></ion-badge>
-        <ion-img src="assets/img/strawberry@2x.png" class="img-cat"></ion-img>
-        <ion-text class="text-center" color="fermwhite">
-          <p>Legumes</p>
-        </ion-text>
-      </ion-card>
-      <ion-card color="fermgreendark" class="content-cat">
-        <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
-        <ion-text class="text-center" color="fermwhite">
-          <p>Legumes</p>
-        </ion-text>
-      </ion-card>
-      <ion-card color="fermgreendark" class="content-cat">
-        <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
-        <ion-text class="text-center" color="fermwhite">
-          <p>Legumes</p>
-        </ion-text>
-      </ion-card>
-    </div>
-    <div>
-
-    </div>
-    <div>
-
-    </div>
-  </div>
-  
 </ion-content>
