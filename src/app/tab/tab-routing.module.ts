@@ -23,12 +23,12 @@ const routes: Routes = [
       {
         path: 'liste-articles',
         loadChildren: () => import('../views/liste-articles/liste-articles.module').then( m => m.ListeArticlesPageModule)
-      }
-      // {
-      //   path: '',
-      //   redirectTo: 'home',
-      //   pathMatch: 'full'
-      // },
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
       
     ]
   },
