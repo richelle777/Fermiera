@@ -1,0 +1,56 @@
+<ion-toolbar color="fermgray">
+  <ion-title>Historique des commandes</ion-title>
+  <ion-buttons slot="start">
+    <ion-menu-button  color="fermiera-dark-green" ></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content>
+    <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+      <ion-accordion class="card" value="first">
+        <ion-item slot="header">
+          <ion-label>Commande #001</ion-label>
+        </ion-item>
+        <div slot="content">
+          <ion-item [routerLink]="[ '/tab/follow-order' ]" lines="none">
+            <ion-label>
+              Broccoli
+            </ion-label>
+            <ion-badge slot="end"> 125 Fcfa</ion-badge>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              Tomatoes
+            </ion-label>
+            <ion-badge slot="end"> 250 Fcfa</ion-badge>
+          </ion-item>
+          <div class="paid">
+            <ion-item lines="none">
+              <ion-badge slot="end"> <h4><b>Total</b> 375Fcfa</h4></ion-badge>
+              <ion-icon color="ferm-greenish" slot="start" name="checkmark-circle"></ion-icon>
+              <h5>Paid</h5>             
+            </ion-item>
+          </div>
+        </div>
+      </ion-accordion>
+      <ion-accordion class="card" value="second">
+        <ion-item slot="header">
+          <ion-label>Commande #002</ion-label>
+        </ion-item>
+        <div slot="content">
+            <ion-item lines="none">
+              <ion-label>
+                Brocoli
+              </ion-label>
+              <ion-badge color="white" slot="end"> 125</ion-badge>
+            </ion-item>
+            <div class="paid">
+              <ion-item lines="none">
+                <ion-badge slot="end"> <h4><b>Total</b> 375Fcfa</h4></ion-badge>
+                <ion-icon  color="danger" slot="start" name="close-circle"></ion-icon>
+                <h5>Not paid</h5>             
+              </ion-item>
+            </div>
+        </div>
+      </ion-accordion>
+    </ion-accordion-group>
+</ion-content>

@@ -2,11 +2,30 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" menuId="pearl_side">
       <ion-content>
-        <ion-menu-toggle autoHide="false">
-          <ion-item>Categories</ion-item>
-          <ion-item>
+        <ion-menu-toggle  autoHide="false">
+          <ion-toolbar mode="ios">
+            <ion-title>Menu</ion-title> 
+           </ion-toolbar>
+           <ion-item [routerLink]=" [ 'tab/home' ] ">
+            <ion-icon slot="start" name="home-outline"></ion-icon>            
+            <ion-label>
+              Accueil
+            </ion-label>
+          </ion-item>
+           <ion-item>
             <span class="mr-10"><ion-icon name="restaurant-outline"></ion-icon></span>
             <ion-label></ion-label>
+          </ion-item>          
+          <ion-item [routerLink]=" [ 'tab/all-orders' ] ">
+            <ion-icon slot="start" name="file-tray-stacked-outline"></ion-icon>            
+            <ion-label>
+              Toutes mes commandes
+            </ion-label>
+          </ion-item>
+          <ion-item [routerLink]=" [ 'tab/follow-order' ] ">
+            <ion-icon slot="start" name="trending-up-outline"></ion-icon>            <ion-label>
+              Suivi commandes
+            </ion-label>
           </ion-item>
         </ion-menu-toggle>
       </ion-content>

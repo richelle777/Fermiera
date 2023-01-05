@@ -95,7 +95,17 @@ const routes: Routes = [
   {
     path: 'liste-articles',
     loadChildren: () => import('./views/liste-articles/liste-articles.module').then( m => m.ListeArticlesPageModule)
+  },
+  {
+    path: 'all-orders',
+    loadChildren: () => import('./views/all-orders/all-orders.module').then( m => m.AllOrdersPageModule)
+  },
+  
+  {
+    path: 'follow-order',
+    loadChildren: () => import('./views/follow-order/follow-order.module').then( m => m.FollowOrderPageModule)
   }
+
 
 ];
 
