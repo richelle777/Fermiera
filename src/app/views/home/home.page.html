@@ -36,7 +36,7 @@
       <p class="text-bold pl-14 mt-47"><ion-text color="dark">Liste des <ion-text color="fermorange">categories</ion-text></ion-text>
       </p>
       <div class="d-flex scroll">
-        <ion-card color="fermgreendark" class="content-cat br-25 p-10" [routerLink]="['/tab/liste-articles']" *ngFor="let cat of resultsOfFilter">
+        <ion-card color="fermgreendark" class="content-cat br-25 p-10"  *ngFor="let cat of resultsOfFilter" (click)="toPage(cat)">
           <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
           <ion-text class="text-center" color="fermwhite">
             <p>{{cat.nom}}</p>
