@@ -32,12 +32,12 @@ export class HomePage implements OnInit {
   handleChange(event) {
     const query = event.target.value.toLowerCase();
     this.resultsOfFilter = this.categories.filter(d => d.nom.toLowerCase().indexOf(query) > -1);
-    console.log(this.resultsOfFilter);
+    //console.log(this.resultsOfFilter);
   }
 
   toPage(obj) {
     localStorage.setItem("categorie", JSON.stringify(obj));
-    console.log(obj);
+    //console.log(obj);
     this.router.navigate(['liste-articles'])
     // this.router.navigate(['tab/liste-articles/',obj.nom])
   }
