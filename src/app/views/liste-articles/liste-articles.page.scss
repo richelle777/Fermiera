@@ -23,3 +23,13 @@
    border: 1px solid;
    border-color: var(--ion-color-fermsecondary);
 }
+@media only screen and (min-width: 481px){
+    .display-sm{
+        display: none;
+    }
+}
+@media only screen and (max-width: 480px){
+    .display-md{
+        display: none;
+    }
+}

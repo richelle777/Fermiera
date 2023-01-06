@@ -1,14 +1,19 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar class="px-18">
-    <div class="d-flex">
+  <ion-toolbar class="">
+    <div class="d-flex px-18">
       <div>
         <ion-buttons>
           <ion-menu-button color="dark"></ion-menu-button>
         </ion-buttons>
       </div>
       <div class="m-auto">
-        <ion-title color="blanc">Accueil</ion-title>
+        <ion-title color="dark" class="text-bold">Accueil</ion-title>
       </div>
+    </div>
+    <div class="mt-20 px-25">
+      <ion-input class="input text-bold" placeholder="Search" color="dark" clearInput (ionChange)="handleChange($event)" debounce="1000">
+        <ion-icon name="search-outline" class="icon"></ion-icon>
+      </ion-input>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -18,11 +23,11 @@
     <!-- <h1 class="text-bold title-welcome">Hello, Bienvenue sur <h1><ion-text color="fermorange" class="mt-10">
         <span>FERMIERA</span></ion-text></h1>
     </h1> -->
-    <div class="mt-25">
-      <ion-input class="input text-bold" placeholder="Search" clearInput color="dark">
+    <!-- <div class="mt-25">
+      <ion-input class="input text-bold" placeholder="Search" color="dark" clearInput (ionChange)="handleChange($event)" debounce="1000">
         <ion-icon name="search-outline" class="icon"></ion-icon>
       </ion-input>
-    </div>
+    </div> -->
     <div class="section1-fruit mt-25">
       <ion-label class="section1-fruit-text text-bold" color="dark">100% Bio, produit par notre terre</ion-label>
       <ion-img src="assets/img/fresh2.png"></ion-img>
@@ -31,7 +36,13 @@
       <p class="text-bold pl-14 mt-47"><ion-text color="dark">Liste des <ion-text color="fermorange">categories</ion-text></ion-text>
       </p>
       <div class="d-flex scroll">
-        <ion-card color="fermgreendark" class="content-cat br-25 p-10" [routerLink]="['/tab/liste-articles']">
+        <ion-card color="fermgreendark" class="content-cat br-25 p-10"  *ngFor="let cat of resultsOfFilter" (click)="toPage(cat)">
+          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
+          <ion-text class="text-center" color="fermwhite">
+            <p>{{cat.nom}}</p>
+          </ion-text>
+        </ion-card>
+        <!-- <ion-card color="fermgreendark" class="content-cat br-25 p-10">
           <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
           <ion-text class="text-center" color="fermwhite">
             <p>Legumes</p>
@@ -42,13 +53,7 @@
           <ion-text class="text-center" color="fermwhite">
             <p>Legumes</p>
           </ion-text>
-        </ion-card>
-        <ion-card color="fermgreendark" class="content-cat br-25 p-10">
-          <ion-img src="assets/img/broccoli@2x.png" class="img-cat"></ion-img>
-          <ion-text class="text-center" color="fermwhite">
-            <p>Legumes</p>
-          </ion-text>
-        </ion-card>
+        </ion-card> -->
       </div>
       <div>
 
