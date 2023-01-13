@@ -1,0 +1,27 @@
+.image-user{
+ width: 140px;
+ height: 140px;
+ display: flex;
+}
+ion-img{
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+}
+ion-item{
+    background-color: none;
+}
+.bg-content{
+    --background: white;
+    --border-width:0px!important;
+    padding: 16px;
+  }
+  .submit-button{
+    width: 312px;
+    height: 60px;
+    border-radius: 36px;
+    background-color: var(--ion-color-fermprimary);
+  }
+.container-submit{
+    margin-top: 32px;
+}
