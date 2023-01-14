@@ -28,8 +28,7 @@ export class ListeArticlesPage implements OnInit {
     const retrieve = localStorage.getItem("categorie");
     this.categorieSelected = JSON.parse(retrieve);
     // this.categorieSelected = this.route.snapshot.paramMap.get('categorie');
-    // console.log(this.categorieSelected);
-    
+    // console.log(this.categorieSelected); 
   }
   ngOnInit() {
   }
