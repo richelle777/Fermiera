@@ -147,6 +147,25 @@
 	--ion-color-fermgreendark-shade: #226e38;
 	--ion-color-fermgreendark-tint: #3d8a53;
 
+  /** fermiera fourth**/
+  --ion-color-fermfourth: #375F54;
+	--ion-color-fermfourth-rgb: 55,95,84;
+	--ion-color-fermfourth-contrast: #ffffff;
+	--ion-color-fermfourth-contrast-rgb: 255,255,255;
+	--ion-color-fermfourth-shade: #30544a;
+	--ion-color-fermfourth-tint: #4b6f65;
+
+
+  /**RedTrash**/
+  --ion-color-redtrash: #AD1919;
+	--ion-color-redtrash-rgb: 173,25,25;
+	--ion-color-redtrash-contrast: #ffffff;
+	--ion-color-redtrash-contrast-rgb: 255,255,255;
+	--ion-color-redtrash-shade: #981616;
+	--ion-color-redtrash-tint: #b53030;
+
+
+
     /** fermiera-dark-green**/
     --ion-color-fermiera-dark-green: #0C3B2E;
     --ion-color-fermiera-dark-green-rgb: 12,59,46;
@@ -170,14 +189,6 @@
     --ion-color-ferm-greenish-contrast-rgb: 0,0,0;
     --ion-color-ferm-greenish-shade: #41be6f;
     --ion-color-ferm-greenish-tint: #5cdc8b;
-
-    /**ferm-dark**/
-    --ion-color-fermdark: #000000;
-    --ion-color-fermdark-rgb: 0,0,0;
-    --ion-color-fermdark-contrast: #ffffff;
-    --ion-color-fermdark-contrast-rgb: 255,255,255;
-    --ion-color-fermdark-shade: #000000;
-    --ion-color-fermdark-tint: #1a1a1a;
   
 }
 .ion-color-fermprimary {
@@ -253,7 +264,24 @@
 	--ion-color-tint: var(--ion-color-fermgreendark-tint);
 }
 
+.ion-color-fermfourth {
+	--ion-color-base: var(--ion-color-fermfourth);
+	--ion-color-base-rgb: var(--ion-color-fermfourth-rgb);
+	--ion-color-contrast: var(--ion-color-fermfourth-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-fermfourth-contrast-rgb);
+	--ion-color-shade: var(--ion-color-fermfourth-shade);
+	--ion-color-tint: var(--ion-color-fermfourth-tint);
+}
 
+.ion-color-redtrash {
+	--ion-color-base: var(--ion-color-redtrash);
+	--ion-color-base-rgb: var(--ion-color-redtrash-rgb);
+	--ion-color-contrast: var(--ion-color-redtrash-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-redtrash-contrast-rgb);
+	--ion-color-shade: var(--ion-color-redtrash-shade);
+	--ion-color-tint: var(--ion-color-redtrash-tint);
+
+}
 .ion-color-fermiera-dark-green {
 	--ion-color-base: var(--ion-color-fermiera-dark-green);
 	--ion-color-base-rgb: var(--ion-color-fermiera-dark-green-rgb);
@@ -279,14 +307,7 @@
 	--ion-color-contrast-rgb: var(--ion-color-ferm-greenish-contrast-rgb);
 	--ion-color-shade: var(--ion-color-ferm-greenish-shade);
 	--ion-color-tint: var(--ion-color-ferm-greenish-tint);
-}
-.ion-color-fermdark {
-	--ion-color-base: var(--ion-color-fermdark);
-	--ion-color-base-rgb: var(--ion-color-fermdark-rgb);
-	--ion-color-contrast: var(--ion-color-fermdark-contrast);
-	--ion-color-contrast-rgb: var(--ion-color-fermdark-contrast-rgb);
-	--ion-color-shade: var(--ion-color-fermdark-shade);
-	--ion-color-tint: var(--ion-color-fermdark-tint);
+
 }
 
 @media (prefers-color-scheme: dark) {
