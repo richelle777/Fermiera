@@ -23,4 +23,13 @@ export class HttpService {
     return this._http.get(this.baseUrl.url+"article/"+nomCategorie+"/"+"searchByCategorie",this.baseUrl.httOptions).toPromise();
   }
 
+  async saveAddress(data){
+    this._http.post(this.baseUrl.url+"fermier2/localisation/save",data,this.baseUrl.httOptions).toPromise()
+
+  }
+
+  async commandes(id_user){
+    return this._http.get(this.baseUrl.url+"commande/user/"+id_user,this.baseUrl.httOptions).toPromise()
+  }
+
 }

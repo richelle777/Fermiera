@@ -1,0 +1,68 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-center">your addresses</ion-title>
+  </ion-toolbar>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="fermorange" (click)="openModal()
+    ">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <div>
+   
+    
+      
+      <ion-card *ngFor="let localisation of local">
+        <ion-card-header>
+          <div class="blocked">
+            <ion-avatar>
+              <ion-icon name="location-outline"></ion-icon>
+          </ion-avatar>
+          <ion-card-title>{{localisation.residence}},{{localisation.ville}}</ion-card-title>
+        </div>
+        </ion-card-header>
+
+        <ion-card-content>
+           
+            
+            <div>
+              <h4>{{localisation.region}},{{localisation.pays}}</h4> 
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <h4>Longitude:{{localisation.longitude}}</h4>
+                  </ion-col>
+                  <ion-col>
+                    <h4>Latitude:{{localisation.latitude}}</h4>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              <div class="bag">
+                <ion-icon name="trash-outline"></ion-icon>
+                <ion-icon name="create-outline"></ion-icon>
+              </div>
+            </div>
+            
+        </ion-card-content>
+        
+       
+      </ion-card>
+
+
+      
+    
+    
+    
+
+  </div>
+
+</ion-content>
