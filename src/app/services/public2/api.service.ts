@@ -12,4 +12,10 @@ export class ApiService {
 
   constructor( private http: HttpClient,
               ) { }
+
+    async saveAddress(data){
+       this.http.post(this.baseUrl.url+"fermier2/localisation/save",data,this.baseUrl.httOptions).toPromise()
+    }
+
+    async 
 }
