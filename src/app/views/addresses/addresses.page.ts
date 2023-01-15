@@ -11,7 +11,7 @@ import { AddAddressPage } from '../add-address/add-address.page';
 })
 export class AddressesPage implements OnInit {
   commandes:any;
-  localisations = new Set;
+ 
   local = []
   iduser = "CU0117"
   constructor(private modalCtrl: ModalController, private httpservice:HttpService) {

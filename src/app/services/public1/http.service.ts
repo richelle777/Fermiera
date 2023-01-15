@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BaseUrl } from 'src/app/class/base-url';
+import { element } from 'protractor';
 
 
 @Injectable({
@@ -20,8 +21,15 @@ export class HttpService {
   }
 
   async saveAddress(data){
-    this._http.post(this.baseUrl.url+"fermier2/localisation/save",data,this.baseUrl.httOptions).toPromise()
-
+    this._http.post(this.baseUrl.url+"fermier/save/localisation",data,this.baseUrl.httOptionsPost).toPromise().then((el)=>{
+      console.log('response',el);
+      return "save"
+    }
+      
+    )
+     
+    
+   
   }
 
   async commandes(id_user){

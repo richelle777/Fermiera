@@ -13,18 +13,18 @@
 
   <div class="container-form">
     <div>
-      <ion-input class="input" placeholder="Residence Street" required clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="Residence Street" required [(ngModel)]="residence"clearInput color="fermtertiary">
         <ion-icon name="home-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
     <div>
-      <ion-input class="input" placeholder="Country" required clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="Country" required [(ngModel)]="country"clearInput color="fermtertiary">
         <ion-icon name="earth-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
 
     <div>
-      <ion-input class="input" placeholder="City" required clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="City" required [(ngModel)]="city"clearInput color="fermtertiary">
         <ion-icon name="map-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
@@ -36,12 +36,12 @@
 
 
     <div>
-      <ion-input class="input" type="number"  placeholder="Longitude" required clearInput color="fermtertiary">
+      <ion-input class="input" type="number"  placeholder="Longitude" required [(ngModel)]="longitude" clearInput color="fermtertiary">
         <ion-icon  name="trail-sign-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
     <div>
-      <ion-input class="input" type="number" placeholder="Latitude" required clearInput color="fermtertiary">
+      <ion-input class="input" type="number" placeholder="Latitude" required [(ngModel)]="latitude"clearInput color="fermtertiary">
         <ion-icon name="trail-sign" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>

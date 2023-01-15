@@ -7,7 +7,15 @@ const httpOptions = {
       }
     )
   };
+  const httpOptions2 = {
+    headers:new HttpHeaders(
+      {
+        'Content-Type': 'application/JSON',
+      }
+    )
+  }
 export class BaseUrl {
     url = "http://localhost:8282/api/";
     httOptions = httpOptions;
+    httOptionsPost = httpOptions2;
 }
