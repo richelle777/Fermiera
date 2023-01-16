@@ -104,7 +104,19 @@ const routes: Routes = [
   {
     path: 'follow-order',
     loadChildren: () => import('./views/follow-order/follow-order.module').then( m => m.FollowOrderPageModule)
-  }
+  },
+
+  {
+    path: 'addresses',
+    loadChildren: () => import('./views/addresses/addresses.module').then( m => m.AddressesPageModule)
+  },
+  {
+    path: 'add-address',
+    loadChildren: () => import('./views/add-address/add-address.module').then( m => m.AddAddressPageModule)
+  },
+  
+
+
 
 
 ];

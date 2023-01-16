@@ -5,6 +5,17 @@
 *{
     font-family: rubik;
 }
+
+@font-face {
+    font-family: rubikRegular;
+    src: url('../assets/fonts/Rubik-Regular.ttf');
+}
+
+@font-face {
+    font-family: rubikMedium;
+    src: url('../assets/fonts/Rubik-Medium.ttf');
+}
+
 .m-auto{
     margin: auto;
 }

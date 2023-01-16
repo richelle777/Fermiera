@@ -1,0 +1,55 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content>
+
+  <ion-toolbar>
+    <ion-title>add address</ion-title>
+    <ion-buttons slot="end">
+     <ion-button color="redtrash" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <div class="container-form">
+    <div>
+      <ion-input class="input" placeholder="Residence Street" required [(ngModel)]="residence"clearInput color="fermtertiary">
+        <ion-icon name="home-outline" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div>
+      <ion-input class="input" placeholder="Country" required [(ngModel)]="country"clearInput color="fermtertiary">
+        <ion-icon name="earth-outline" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+
+    <div>
+      <ion-input class="input" placeholder="City" required [(ngModel)]="city"clearInput color="fermtertiary">
+        <ion-icon name="map-outline" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div>
+      <ion-input class="input" placeholder="Region" [(ngModel)]="region" required clearInput color="fermtertiary">
+        <ion-icon name="map" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+
+
+    <div>
+      <ion-input class="input" type="number"  placeholder="Longitude" required [(ngModel)]="longitude" clearInput color="fermtertiary">
+        <ion-icon  name="trail-sign-outline" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+    <div>
+      <ion-input class="input" type="number" placeholder="Latitude" required [(ngModel)]="latitude"clearInput color="fermtertiary">
+        <ion-icon name="trail-sign" color="fermtertiary" class="icon"></ion-icon>
+      </ion-input>
+    </div>
+
+    <div class="container-submit">
+      <button  class="submit-button" (click)="confirm()"><ion-text color="fermwhite"><ion-icon name="paper-plane-outline"></ion-icon>ADD</ion-text></button>
+    </div>
+   
+  </div>
+
+</ion-content>

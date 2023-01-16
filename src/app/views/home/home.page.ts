@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-  articles : any;
+  // articles : any;
   categories : any;
   resultsOfFilter  = [];
   constructor(private httpSevice:HttpService , private router:Router) { 
-    this.httpSevice.listArticles().then((data) => {
-      this.articles = data
-     // console.log(this.articles);
-    })
+    // this.httpSevice.listArticles().then((data) => {
+    //   this.articles = data
+    //  // console.log(this.articles);
+    // })
   }
 
   ngOnInit() {
