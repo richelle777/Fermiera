@@ -17,7 +17,7 @@ export class HttpService {
   }
 
   async listCategories(){
-    return this._http.get(this.baseUrl.url+"categorie/all",this.baseUrl.httOptions).toPromise();
+    return this._http.get(this.baseUrl.url+"category/all",this.baseUrl.httOptions).toPromise();
   }
   
   async listFruitsByCat(nomCategorie){
