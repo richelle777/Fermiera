@@ -8,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class PanierPage implements OnInit {
 
   constructor() { }
-
+  numberProduit!:number;
   ngOnInit() {
+    this.numberProduit=0;
   }
 
+  add(i:number){
+    this.numberProduit=this.numberProduit+1;
+  }
 }

@@ -28,7 +28,7 @@
     </div>
     <div class="display-sm" *ngIf="resultsOfFilter.length > 0">
       <div class="mt-25" *ngFor="let fruit of resultsOfFilter">
-        <ion-card class="m-0 br-15">
+        <ion-card class="m-0 br-15" (click)="toPage(fruit.id)">
           <div class="p-20 d-flex">
             <div>
               <ion-img src="assets/img/fraise.png"></ion-img>

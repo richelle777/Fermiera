@@ -80,3 +80,14 @@ ion-icon{
   background-color: var(--ion-color-fermprimary);
 
 }
+
+.special-icon{
+  width:40px;
+  height: 40px;
+  background:#DDEEDE ;
+  border-radius: 10px;
+  display: flex;
+  & ion-icon{
+    transform: translate(80%,80%);
+  }
+}
