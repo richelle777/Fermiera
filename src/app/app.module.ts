@@ -8,7 +8,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import {HttpClientModule,HttpClient} from '@angular/common/http';
-
+// import {AngularFireAuthModule} from '@angular/fire/auth';
+// import {AngularFireModule} from '@angular/fire';
+// import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {} from '@angular/fire/auth';
+// import {firebaseConfig} from 'src/environments/environment';
+// // AngularFireModule.initializeApp(firebaseConfig), AngularFireAuthModule , AngularFirestoreModule
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , HttpClientModule],

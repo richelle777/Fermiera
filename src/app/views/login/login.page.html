@@ -9,25 +9,45 @@
   <div class="container-logo m-auto">
     <ion-img src="assets/img/logo.svg"></ion-img>
   </div>
-  <div class="container-form">
+  <form class="container-form" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
+  <!-- <div class="container-form"> -->
     <div>
-      <ion-input class="input" placeholder="Email" required clearInput color="fermtertiary">
+      <ion-input class="input" formControlName="email" placeholder="Email" clearInput color="fermtertiary">
         <ion-icon name="mail-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
     <div>
-      <ion-input class="input" placeholder="PassWord" required clearInput color="fermtertiary">
+      <ng-container *ngFor="let validation of validationUserMessage.email">
+            <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+               {{validation.message}}
+            </div>
+      </ng-container>
+  </div>
+
+    <div class="mt-5">
+      <ion-input class="input" formControlName="password"  placeholder="**************" required clearInput color="fermtertiary">
+        <!-- [disabled]="!validationFormUser.valid" -->
         <ion-icon name="lock-closed-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
+
+    <div>
+      <ng-container *ngFor="let validation of validationUserMessage.password">
+           <div class="error_message" *ngIf="validationFormUser.get('password').hasError(validation.type) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched)">
+              {{validation.message}}
+           </div>
+       </ng-container>
+  </div>
+
     <div>
       <p><ion-text color="fermtertiary">Forgot password?</ion-text></p>
     </div>
     <div class="container-submit">
-      <button  class="submit-button" (click)="goToHome()"><ion-text color="fermwhite"> <ion-icon name="arrow-forward-outline"></ion-icon> SIGN IN</ion-text></button>
+      <button  class="submit-button" type="submit" [disabled]="!validationFormUser.valid"><ion-text color="fermwhite"> <ion-icon name="arrow-forward-outline"></ion-icon> SIGN IN</ion-text></button>
     </div>
     <div class="container-create">
       <p class="text-center" (click)="goToRegister()"><ion-text color="fermtertiary">Create account</ion-text></p>
     </div>
-  </div>
+  <!-- <div> -->
+  </form>  
 </ion-content>

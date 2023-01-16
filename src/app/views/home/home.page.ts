@@ -10,8 +10,15 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
   // articles : any;
   categories : any;
+  customer : any;
+  initials : String;
   resultsOfFilter  = [];
   constructor(private httpSevice:HttpService , private router:Router) { 
+    const retrieve = localStorage.getItem("customer");
+    this.customer = JSON.parse(retrieve);
+    this.initials = this.customer.nom[0]+this.customer.nom[1];
+    console.log(this.initials);
+    
     // this.httpSevice.listArticles().then((data) => {
     //   this.articles = data
     //  // console.log(this.articles);

@@ -6,6 +6,7 @@ import { BaseUrl } from 'src/app/class/base-url';
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpService {
   baseUrl  = new BaseUrl();
   constructor(private _http :HttpClient) { }
@@ -13,7 +14,7 @@ export class HttpService {
     return this._http.get(this.baseUrl.url+"article/all",this.baseUrl.httOptions).toPromise();
   }
   async listCategories(){
-    return this._http.get(this.baseUrl.url+"categorie/all",this.baseUrl.httOptions).toPromise();
+    return this._http.get(this.baseUrl.url+"category/all",this.baseUrl.httOptions).toPromise();
   }
   async listFruitsByCat(nomCategorie){
     return this._http.get(this.baseUrl.url+"article/"+nomCategorie+"/"+"searchByCategorie",this.baseUrl.httOptions).toPromise();
