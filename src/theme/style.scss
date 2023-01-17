@@ -134,3 +134,12 @@ ion-toolbar, ion-content{
 .flex-wrap{
     flex-wrap: wrap;
 }
+.underline{
+    text-decoration: underline;
+}
+.disabled{
+    background-color: var(--ion-color-fermgreenlight)!important;
+}
+.ml-5{
+    margin-left : 5px;
+}

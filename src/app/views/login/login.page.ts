@@ -16,14 +16,22 @@ export class LoginPage implements OnInit {
   customer:any;
   emailReceive = "";
   customerReceive = "";
+  badEmail = false;
+  badPassword = false;
+
   constructor( private router:Router , public formbuilder: FormBuilder , private authService:AuthService) { 
-    this.customer = localStorage.getItem("customer");
+    const retrieve = localStorage.getItem("registerInfos");
+    this.customer = JSON.parse(retrieve);
+
     this.emailReceive = this.customer.email;
+    console.log(this.emailReceive);
   }
   
   ngOnInit() {
+    console.log(this.emailReceive);
+    
     this.validationFormUser = this.formbuilder.group({
-      email: new FormControl('' , Validators.compose([
+      email: new FormControl(this.emailReceive , Validators.compose([
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ])),
@@ -31,6 +39,7 @@ export class LoginPage implements OnInit {
         Validators.required,
         Validators.minLength(5)
       ]))
+
     })
   }
   goToRegister(){
@@ -52,11 +61,20 @@ export class LoginPage implements OnInit {
 
   loginUser(connexionForm:any){
     console.log(connexionForm);
-    
     this.authService.login(connexionForm).subscribe((data) => {
       this.customer = data;
-      localStorage.setItem("customer", JSON.stringify(this.customer));
-      this.router.navigate(['tab/home'])
+      if(this.customer.body == "mdp incorrect"){
+        this.badPassword = true
+        this.badEmail = false
+      }
+      else if(this.customer.body == "email doesn't exist"){
+        this.badEmail = true
+        this.badPassword = false
+      }
+      else{
+        localStorage.setItem("customer", JSON.stringify(this.customer));
+        this.router.navigate(['tab/home'])
+      }
     })
   }
 

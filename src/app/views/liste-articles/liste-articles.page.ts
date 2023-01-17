@@ -45,7 +45,7 @@ export class ListeArticlesPage implements OnInit {
     setTimeout(() => {
       console.log(this.resultsOfFilter.length);
       this.loaded = true;
-    } , 3000)
+    } , 1000)
     // this.categorieSelected = this.route.snapshot.paramMap.get('categorie');
     // console.log(this.categorieSelected); 
   }

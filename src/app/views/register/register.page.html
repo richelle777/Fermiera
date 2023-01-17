@@ -11,11 +11,11 @@
   </div>
   <form class="container-form" [formGroup]="validationFormUser" (ngSubmit)="registerUser(validationFormUser.value)">
     <div>
-      <ion-input class="input" formControlName="nom" placeholder="Full Name" required clearInput color="fermtertiary">
+      <ion-input class="input" formControlName="nom" placeholder="Full Name" required clearInput color="fermtertiary" [ngClass]="{ 'error-input': (validationFormUser.get('nom').hasError(validationUserMessage.nom[0].type)) && (validationFormUser.get('nom').dirty || validationFormUser.get('nom').touched)}">
         <ion-icon name="people-outline"  color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
-    <div>
+    <div class="mt-5">
       <ng-container *ngFor="let validation of validationUserMessage.nom">
             <div class="error_message" *ngIf="validationFormUser.get('nom').hasError(validation.type) && (validationFormUser.get('nom').dirty || validationFormUser.get('nom').touched)">
                {{validation.message}}
@@ -23,44 +23,48 @@
       </ng-container>
     </div>
     <div class="mt-15">
-      <ion-input class="input" formControlName="email" placeholder="Email" required clearInput color="fermtertiary">
+      <ion-input class="input" formControlName="email" placeholder="Email" required clearInput color="fermtertiary" [ngClass]="{ 'error-input': (validationFormUser.get('email').hasError(validationUserMessage.email[0].type) || validationFormUser.get('email').hasError(validationUserMessage.email[1].type)) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)}">
         <ion-icon name="mail-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
-    <div>
+    <div class="mt-5">
       <ng-container *ngFor="let validation of validationUserMessage.email">
-            <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
-               {{validation.message}}
-            </div>
+        <div class="error_message" *ngIf="validationFormUser.get('email').hasError(validation.type) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">
+          {{validation.message}}
+        </div>
       </ng-container>
+      <div>
+        <ion-text color="danger" *ngIf="badEmail && !(validationFormUser.get('email').hasError(validationUserMessage.email[0].type) || validationFormUser.get('email').hasError(validationUserMessage.email[1].type)) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)">This User is Already Save</ion-text>
+      </div>
     </div>
     <div class="mt-15">
-      <ion-input class="input" formControlName="motDePasse" placeholder="PassWord" required clearInput color="fermtertiary">
+      <ion-input class="input" formControlName="motDePasse" placeholder="PassWord" required clearInput color="fermtertiary" [ngClass]="{ 'error-input': (validationFormUser.get('motDePasse').hasError(validationUserMessage.motDePasse[0].type) || validationFormUser.get('motDePasse').hasError(validationUserMessage.motDePasse[1].type)) && (validationFormUser.get('motDePasse').dirty || validationFormUser.get('motDePasse').touched)}">
         <ion-icon name="lock-closed-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
-    <div>
+    <div class="mt-5">
       <ng-container *ngFor="let validation of validationUserMessage.motDePasse">
-           <div class="error_message" *ngIf="validationFormUser.get('motDePasse').hasError(validation.type) && (validationFormUser.get('motDePasse').dirty || validationFormUser.get('motDePasse').touched)">
-              {{validation.message}}
-           </div>
+        <div class="error_message" *ngIf="validationFormUser.get('motDePasse').hasError(validation.type) && (validationFormUser.get('motDePasse').dirty || validationFormUser.get('motDePasse').touched)">
+          {{validation.message}}
+        </div>
        </ng-container>
     </div>
     <div class="mt-15">
-      <ion-input class="input" formControlName="telephone" placeholder="Telephone number" required clearInput color="fermtertiary" type="number">
-        <ion-icon name="lock-closed-outline" color="fermtertiary" class="icon"></ion-icon>
+      <ion-input class="input" formControlName="telephone" placeholder="Telephone number" required clearInput color="fermtertiary" type="tel" [ngClass]="{ 'error-input': (validationFormUser.get('telephone').hasError(validationUserMessage.telephone[0].type) || validationFormUser.get('telephone').hasError(validationUserMessage.telephone[1].type)) && (validationFormUser.get('telephone').dirty || validationFormUser.get('telephone').touched)}">
+        <ion-icon name="call-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
-    <div>
+    <div class="mt-5">
       <ng-container *ngFor="let validation of validationUserMessage.telephone">
-           <div class="error_message" *ngIf="validationFormUser.get('telephone').hasError(validation.type) && (validationFormUser.get('telephone').dirty || validationFormUser.get('telephone').touched)">
-              {{validation.message}}
-           </div>
-       </ng-container>
+        <div class="error_message" *ngIf="validationFormUser.get('telephone').hasError(validation.type) && (validationFormUser.get('telephone').dirty || validationFormUser.get('telephone').touched)">
+          {{validation.message}}
+        </div>
+      </ng-container>
     </div>
 
     <div class="container-submit">
-      <button  class="submit-button" type="submit"><ion-text color="fermwhite"> <ion-icon name="arrow-forward-outline"></ion-icon> CREATE ACCOUNT</ion-text></button>
+      <button  class="submit-button" type="submit" [disabled]="!validationFormUser.valid"
+      [ngClass]="{ 'disabled': !validationFormUser.valid}"><ion-text color="fermwhite"> <ion-icon name="arrow-forward-outline"></ion-icon> CREATE ACCOUNT</ion-text></button>
     </div>
     <div class="container-create">
       <p class="text-center"><ion-text color="fermtertiary" (click)="goToLogin()">Sign In</ion-text></p>

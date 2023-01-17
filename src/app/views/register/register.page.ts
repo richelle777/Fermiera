@@ -12,8 +12,14 @@ export class RegisterPage implements OnInit {
   validationFormUser: FormGroup;
   registerForm: any;
   customer : any;
-  constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService) { }
-
+  badEmail = false;
+  id = 0;
+  constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService) {
+    this.id = this.id +1;
+   }
+  ionViewDidEnter(){
+    this.id = this.id + 1;
+  }
   ngOnInit() {
     this.validationFormUser = this.formbuilder.group({
       email: new FormControl('' , Validators.compose([
@@ -29,6 +35,7 @@ export class RegisterPage implements OnInit {
       ])),
       telephone: new FormControl('' , Validators.compose([
         Validators.required,
+        Validators.min(9)
         // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
       ]))
     })
@@ -44,10 +51,11 @@ export class RegisterPage implements OnInit {
       {type:"minlength", message:"The Password must be at least 5 characters or more"}
     ],
     nom:[
-      {type:"required", message:"Please enter your password!"}
+      {type:"required", message:"Please enter your name!"}
     ],
     telephone:[
-      {type:"required", message:"Please enter your password!"}
+      {type:"required", message:"Please enter your phone number!"},
+      {type:"min", message:"The phone number must be have 9 numbers"}
     ]
   }
 
@@ -57,13 +65,17 @@ export class RegisterPage implements OnInit {
 
   registerUser(registerForm){
     console.log(registerForm);
-    registerForm.id = "abbbbnn";
+    registerForm.id = "e";
     this.authService.register(registerForm).subscribe((data) => {
       this.customer = data;
       console.log(this.customer);
-      
-      localStorage.setItem("customer", JSON.stringify(this.customer));
-      this.router.navigate(['login'])
+      if(this.customer.body == "this user is already save"){
+        this.badEmail = true
+      }
+      else{
+        localStorage.setItem("registerInfos", JSON.stringify(this.customer.body));
+        this.router.navigate(['login'])
+      }
     })
   }
 }
