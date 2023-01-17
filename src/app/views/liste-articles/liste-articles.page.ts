@@ -1,7 +1,7 @@
 import { HttpService } from './../../services/public1/http.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-liste-articles',
   templateUrl: './liste-articles.page.html',
@@ -15,8 +15,7 @@ export class ListeArticlesPage implements OnInit {
   resultsOfFilter  = [];
   test = new Set();
 
-  constructor(private route: ActivatedRoute , private httpService:HttpService) { 
-    this.test.add
+  constructor(private route: ActivatedRoute , private httpService:HttpService,private router:Router) { 
     const retrieve = localStorage.getItem("categorie");
     this.categorieSelected = JSON.parse(retrieve);
     //console.log(this.categorieSelected);
@@ -56,6 +55,10 @@ export class ListeArticlesPage implements OnInit {
     this.resultsOfFilter = this.fruitsOfCat.filter(d => (d.nom.toLowerCase().indexOf(query) > -1) || (d.prixU == query));
     console.log(this.resultsOfFilter);
   }
-
+  toPage(id:any){
+    const fruit=this.resultsOfFilter.find(fruits=> fruits.id ===id);
+    localStorage.setItem('detailF',JSON.stringify(fruit));
+    this.router.navigate(['/details-fruits']);
+  }
 
 }
