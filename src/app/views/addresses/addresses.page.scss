@@ -12,6 +12,15 @@ ion-toolbar{
     margin-bottom: .5rem;
 }
 
+ion-toolbar>div{
+   display: flex;
+   margin-top:-3.5vh;
+}
+
+ion-toolbar>div>ion-icon{
+    margin-left:4vw;
+    margin-right: -4vw;
+}
 ion-fab{
     color:var(--ion-color-fermorange);
 }

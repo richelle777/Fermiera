@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-
-  constructor() { }
+  
+  genus:string;
+  name:string;
+  family:string;
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+
+  toPage(){
+   this.router.navigate(['/addresses']);
   }
 
 }
