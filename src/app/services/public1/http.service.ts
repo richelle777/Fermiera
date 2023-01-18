@@ -14,6 +14,15 @@ export class HttpService {
 
   constructor(private _http :HttpClient) { }
 
+  async saveArticleCommande(data){
+    this._http.post(this.baseUrl.url+"commandearticle/save",data,this.baseUrl.httOptionsPost).toPromise().then((el)=>{
+      console.log('response',el);
+      return "save"
+    });
+  }
+  async listArticleCommande(){
+    return this._http.get(this.baseUrl.url+"commandearticle/all",this.baseUrl.httOptions).toPromise();
+  }
   async listArticles(){
     return this._http.get(this.baseUrl.url+"article/all",this.baseUrl.httOptions).toPromise();
   }
@@ -57,4 +66,11 @@ export class HttpService {
 
 
 
+  async deleteArticleFromCommande(idArticle){
+    return this._http.get(this.baseUrl.url+idArticle+"/delete",this.baseUrl.httOptions).toPromise()
+  }
+  async updateArticleFromCommande(qte,article){
+    return this._http.get(this.baseUrl.url+qte/article+"/update",this.baseUrl.httOptions).toPromise()
+  }
+ 
 }

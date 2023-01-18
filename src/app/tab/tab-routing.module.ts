@@ -33,6 +33,10 @@ const routes: Routes = [
         loadChildren: () => import('../views/follow-order/follow-order.module').then( m => m.FollowOrderPageModule)
       },
       {
+        path: 'panier',
+        loadChildren: () => import('../views/panier/panier.module').then( m => m.PanierPageModule)
+      },
+      {
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar class="">
+    <div class="d-flex px-18">
+      <div>
+        <ion-buttons>
+          <ion-menu-button ></ion-menu-button>
+        </ion-buttons>
+      </div>
+      <div class="m-auto">
+        <ion-title class="text-bold">paiement</ion-title>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <!-- <ion-card>     
+    <ion-item>
+      <ion-icon name="card-outline" color="#5260ff"></ion-icon>
+      <ion-label class="ion-text-center" color="fermgreendark" >Carte bancaire</ion-label>
+      
+      <ion-checkbox color="fermgreendark" (click)="checkChoice1()" [(ngModel)]="isCheckedCard" checked = "isCheckedCard"></ion-checkbox>
+    </ion-item>
+  </ion-card>
+  <ion-card>     
+    <ion-item>
+      <ion-icon name="logo-usd" color="#5260ff"></ion-icon>
+     
+      <ion-label class="ion-text-center" color="fermgreendark">A la livraison</ion-label>
+      <ion-checkbox color="fermgreendark" (click)="checkChoice2()" [(ngModel)]="isCheckedLiv" [checked] = "isCheckedLiv"></ion-checkbox>
+    </ion-item>
+  </ion-card> <br>
+  <ion-card   >           
+      <ion-item [routerLink]="['../paiement1']" color="fermgreendark">
+        <ion-label class="ion-text-center">NEXT<ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-label>
+      </ion-item>
+  </ion-card> -->
+  
+    <ion-radio-group value="strawberries" mode="ios">
+      <ion-card>
+        <ion-item [routerLink]="['../paiement1']">
+          <ion-icon name="card-outline" ></ion-icon>
+          <ion-label  class="ion-text-center">Carte bancaire</ion-label>
+          <!--ion-radio slot="end" value="grapes" color="fermgreendark"></ion-radio-->
+        </ion-item>
+      </ion-card>
+      <ion-card (click)="openDialog()">
+        <ion-item [routerLink]="['../follow-order']">
+          <ion-icon name="logo-usd"></ion-icon>
+          <ion-label  class="ion-text-center">A la livraison</ion-label>
+          <!--ion-radio slot="end" value="strawberries" color="fermgreendark"></ion-radio-->
+        </ion-item>
+      </ion-card>    
+    </ion-radio-group>
+
+ 
+
+</ion-content>

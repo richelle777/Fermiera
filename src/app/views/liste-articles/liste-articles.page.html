@@ -53,7 +53,7 @@
             <div class="pl-15">
               <!-- <h3 class="m-auto"><ion-text color="fermdark">{{fruit.nom}}</ion-text></h3> -->
               <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
-              <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
+               <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
               <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
               <!-- <h6 class="m-0 mt-5"> <ion-text color="fermsecondary"> {{fruit.prixU}}Fcfa </ion-text></h6> -->
               <!-- <h6 class="m-0 mt-5"><ion-text color="fermorange" class="font-12"> {{fruit.description}} </ion-text></h6> -->
@@ -68,7 +68,7 @@
     <div class="display-md mt-25" *ngIf="resultsOfFilter.length > 0 && loaded">
       <ion-grid class="d-flex flex-wrap">
         <ion-col size=6 sizeSm=4 sizeMd=3 sizeLg=3 sizeXl=2 *ngFor="let fruit of resultsOfFilter">
-          <ion-card class="m-0 br-15 h-full">
+          <ion-card class="m-0 br-15 h-full" (click)="toPage(fruit.id)">
             <div class="p-20">
               <ion-card class="br-10 m-0">
                 <ion-img src="assets/img/big_fraise.jpg"></ion-img>

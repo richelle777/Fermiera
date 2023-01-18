@@ -1,69 +1,84 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>panier</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="px-18">
+    <div class="d-flex">
+      <div>
+        <ion-buttons slot="start">
+          <ion-back-button color="fermdark"></ion-back-button>
+        </ion-buttons>
+      </div>
+      <div class="m-auto">
+        <ion-label color="fermdark" class="text-bold">Panier</ion-label>
+      </div>
+      <div>
+        <ion-buttons>
+          <ion-menu-button color="fermdark"></ion-menu-button>
+        </ion-buttons>
+      </div>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="bg-content">
- <div>
-   <ion-card class="content d-flex ion-margin-bottom ">
+ <div *ngIf="loaded">
+   <ion-card class="content d-flex ion-margin-bottom " *ngFor="let article of Tab" >
      <ion-thumbnail class="image">
        <ion-img class="rounded" src="assets/img/big_fraise.jpg"></ion-img>
      </ion-thumbnail>
      <div class="info-content">
        <div class="info-content-titleO d-flex ion-justify-content-between ">
-         <ion-title>Orange</ion-title>
+         <ion-title style="font-size:14px">{{article.nom}}</ion-title>
          <button class="custom-button "><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
        </div>
        <div class="info-content-tile1 d-flex ion-justify-content-between">
-         <div class="name-categorie d-flex ion-align-items-center">
+         <!-- <div class="name-categorie d-flex ion-align-items-center">
            <ion-icon name="flame-outline"></ion-icon> <ion-text>Baies</ion-text>
-         </div>
+         </div> -->
          <div class="name-seller  d-flex ion-align-items-center">
-           <ion-icon name="person-circle"></ion-icon> <ion-text> Franck K</ion-text>
+           <ion-icon name="person-circle"></ion-icon>&nbsp; &nbsp;  <ion-text> {{article.fermierDto.nom}}</ion-text>
          </div>
        </div>
        <div class="info-conent-title2 d-flex ion-align-items-center  ion-justify-content-between">
          <div class="price">
-           <ion-text class="ion-text-lg-start">1500</ion-text>
+           <ion-text class="ion-text-lg-start">{{article.prixU}} Fcfa</ion-text>
          </div>
          <div class="u--color d-flex ion-align-items-center">
-           <ion-button fill="clear"><ion-icon name="add-outline"></ion-icon></ion-button>
-           <span>{{numberProduit}}</span>
-           <ion-button fill="clear"><ion-icon name="remove-outline"></ion-icon></ion-button>
+           <ion-button fill="clear" (click)="add(article)"><ion-icon name="add-outline"></ion-icon></ion-button>
+           <span>{{article.quantite}}</span>
+           <ion-button fill="clear" (click)="remove()"><ion-icon name="remove-outline"></ion-icon></ion-button>
          </div>
        </div>
-     </div>
+     </div>  
    </ion-card>
-   <ion-card class="content d-flex ">
-     <ion-thumbnail class="image">
-       <ion-img class="rounded" src="assets/img/big_fraise.jpg"></ion-img>
-     </ion-thumbnail>
-     <div class="info-content">
-       <div class="info-content-titleO d-flex ion-justify-content-between ">
-         <ion-title>Orange</ion-title>
-         <button class="custom-button "><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
-       </div>
-       <div class="info-content-tile1 d-flex ion-justify-content-between">
-         <div class="name-categorie d-flex ion-align-items-center">
-           <ion-icon name="flame-outline"></ion-icon> <ion-text>Baies</ion-text>
-         </div>
-         <div class="name-seller  d-flex ion-align-items-center">
-           <ion-icon name="person-circle"></ion-icon> <ion-text> User</ion-text>
-         </div>
-       </div>
-       <div class="info-conent-title2 d-flex ion-align-items-center  ion-justify-content-between">
-         <div class="price">
-           <ion-text class="ion-text-lg-start">1500</ion-text>
-         </div>
-         <div class="u--color d-flex ion-align-items-center">
-           <ion-button fill="clear"><ion-icon name="add-outline"></ion-icon></ion-button>
-           <span>1</span>
-           <ion-button fill="clear"><ion-icon name="remove-outline"></ion-icon></ion-button>
-         </div>
-       </div>
-     </div>
-   </ion-card>
+  </div>
+  <div *ngIf="!loaded">
+   <ion-card class="content d-flex ion-margin-bottom skeleton-card" *ngFor="let article of Tab" >
+    <ion-thumbnail class="image">
+      <ion-skeleton-text [animated]="true" class="skeletton-img"></ion-skeleton-text>
+    </ion-thumbnail>
+    <div class="info-content">
+      <div class="info-content-titleO d-flex ion-justify-content-between ">
+        <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
+      </div>
+      <div class="info-content-tile1 d-flex ion-justify-content-between">
+        <!-- <div class="name-categorie d-flex ion-align-items-center">
+          <ion-icon name="flame-outline"></ion-icon> <ion-text>Baies</ion-text>
+        </div> -->
+        <div class="name-seller  d-flex ion-align-items-center">
+          <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
+        </div>
+      </div>
+      <div class="info-conent-title2 d-flex ion-align-items-center  ion-justify-content-between">
+        <div class="price">
+          <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
+        </div>
+        <div class="u--color d-flex ion-align-items-center">
+          <ion-skeleton-text [animated]="true" style="width: 50px" class="m-0 mt-5"></ion-skeleton-text>
+          <span></span>
+          <ion-skeleton-text [animated]="true" style="width:50px" class="m-0 mt-5"></ion-skeleton-text>
+        </div>
+      </div>
+    </div>
+  </ion-card>
  </div>
 <div class="checkout ion-margin-top">
   <ion-card class="ion-padding">
@@ -80,7 +95,7 @@
       <ion-text>100Fcfa</ion-text>
     </div>
     <div class="container-submit ion-margin-top">
-      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite">BUY</ion-text></button>
+      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center" [routerLink]="['../paiement']"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
     </div>
   </ion-card>
 </div>
