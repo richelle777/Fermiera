@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     const retrieve = localStorage.getItem("registerInfos");
     this.customer = JSON.parse(retrieve);
 
-    this.emailReceive = this.customer.email;
+    this.emailReceive = this.customer?.email;
     console.log(this.emailReceive);
   }
   
