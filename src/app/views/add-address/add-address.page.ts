@@ -17,10 +17,12 @@ export class AddAddressPage implements OnInit {
   country:string;
   city:string;
 
-  id_user = "CU0117";
+  user:any;
 
 
-  constructor(private modalCtrl: ModalController, private httpclient:HttpService, private gest_modal:GestionPagesService, private toastController: ToastController) {}
+  constructor(private modalCtrl: ModalController, private httpclient:HttpService, private gest_modal:GestionPagesService, private toastController: ToastController, private http2:HttpService) {
+    this.user = this.http2.getuserInfos()
+  }
 
 
   async presentToast(position: 'top') {
@@ -51,7 +53,7 @@ export class AddAddressPage implements OnInit {
       "region":this.region,
       "longitude":this.longitude,
       "latitude":this.latitude,
-      "added_by":this.id_user
+      "added_by":this.user.id
     }
 
     console.log('form', data);

@@ -1,5 +1,10 @@
+ion-header{
+    border-color:var(--ion-color-fermgray);
+}
+
 ion-content,ion-toolbar{
     --background:var(--ion-color-fermgray);
+    
 }
 
 ion-toolbar{
@@ -7,14 +12,16 @@ ion-toolbar{
     font-family: rubikMeduim;
     text-transform: capitalize;
     font-size: 20pt;
+    
     // font-weight: 10;
-    margin-top: 1.50rem;
-    margin-bottom: .5rem;
+    // margin-top: 1.50rem;
+    // margin-bottom: .5rem;
 }
 
 ion-toolbar>div{
    display: flex;
-   margin-top:-3.5vh;
+//    
+
 }
 
 ion-toolbar>div>ion-icon{

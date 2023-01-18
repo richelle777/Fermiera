@@ -1,5 +1,5 @@
 import { HttpService } from './../../services/public1/http.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,8 +10,19 @@ import { Router } from '@angular/router';
 export class HomePage implements OnInit {
   // articles : any;
   categories : any;
+  customer : any;
+  initials : String;
   resultsOfFilter  = [];
+
+  @ViewChild('popover') popover;
+  isOpen = false;
+
   constructor(private httpSevice:HttpService , private router:Router) { 
+    const retrieve = localStorage.getItem("customer");
+    this.customer = JSON.parse(retrieve);
+    this.initials = this.customer.body.email[0]+this.customer.body.email[1];
+    console.log(this.initials);
+    
     // this.httpSevice.listArticles().then((data) => {
     //   this.articles = data
     //  // console.log(this.articles);
@@ -19,6 +30,11 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  openPopover(e: Event){
+    this.popover.event = e;
+    this.isOpen = true;
   }
 
   ionViewDidEnter(){

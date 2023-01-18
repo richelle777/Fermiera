@@ -7,8 +7,20 @@
         </ion-buttons>
       </div>
       <div class="m-auto">
-        <ion-title color="fermdark" class="text-bold">Accueil</ion-title>
+        <ion-text color="fermdark" class="text-bold">Accueil</ion-text>
       </div>
+      <div class="mt-10" (click)="openPopover($event)">
+        <ion-text color="fermgreendark" class="initial uppercase">{{initials}}</ion-text>
+      </div>
+      <ion-popover #popover [isOpen]="isOpen" (didDidmiss)="isOpen = false">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <!-- <h4><ion-icon name="settings-outline" color="fermtertiary" class="icon-md"></ion-icon> <ion-text class="ml-5">Account Settings</ion-text></h4>
+             -->
+            <div class="d-flex"><div class="m-0"><ion-icon name="log-out-outline" color="fermtertiary" class="icon-md"></ion-icon></div><div><ion-text class="ml-5 fs-21">LogOut</ion-text></div></div>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
     </div>
     <div class="mt-20 px-25">
       <ion-input class="input text-bold" placeholder="Search" color="fermdark" clearInput (ionChange)="handleChange($event)" debounce="1000">

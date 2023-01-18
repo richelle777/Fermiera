@@ -17,13 +17,14 @@ export class AddressesPage implements OnInit {
   commandes;
   open:number
   local;
-  iduser = "CU0117"
-  constructor(private modalCtrl: ModalController, private httpservice:ApiService, private router:Router, private gestModal:GestionPagesService) {
+  user:any;
+  constructor(private modalCtrl: ModalController, private httpservice:ApiService, private router:Router, private gestModal:GestionPagesService, private http2:HttpService) {
+    this.user = this.http2.getuserInfos();
     setInterval(()=>{
       this.open = this.gestModal.getModal()
 
       if (this.open == -1 || this.supp == 1){
-        this.httpservice.listLocalisations(this.iduser).then((data)=>{
+        this.httpservice.listLocalisations(this.user.id).then((data)=>{
           console.log(data);
           this.commandes = data;
       
@@ -64,7 +65,7 @@ export class AddressesPage implements OnInit {
   ionViewDidEnter(){
     this.supp = 0;
 
-  this.httpservice.listLocalisations(this.iduser).then((data)=>{
+  this.httpservice.listLocalisations(this.user.id).then((data)=>{
     console.log(data);
     this.commandes = data;
 
