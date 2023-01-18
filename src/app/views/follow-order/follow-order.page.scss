@@ -5,7 +5,10 @@ ion-title{
     padding-left: 65px;
     font-weight: bold;
 }
-
+ion-toolbar, ion-content{
+    --background: var(--ion-color-fermgray);
+    // --border-width:0px!important;
+}
 ion-searchbar{
     padding-right: 70px;
     margin-top: 8px;

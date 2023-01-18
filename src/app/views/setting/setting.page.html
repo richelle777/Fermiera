@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Accountsetting</ion-title>
+    <ion-title class="text-center">Accountsetting</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,19 +13,19 @@
   </div>
   <div class="user-info">
     <p style="text-align: center;font-weight: 700" color="Primary">Please Fill information Fruits</p>
-    <ion-item >
+    <ion-item color="fermgray">
       <ion-label  position="stacked">Nom&Prenom</ion-label>
       <ion-input type="text" placeholder="Stepahnie Siewe"  [(ngModel)]="genus"></ion-input>
     </ion-item>
-    <ion-item  >
+    <ion-item color="fermgray">
       <ion-label  position="stacked">Email</ion-label>
       <ion-input type="text" placeholder="Enter email"  [(ngModel)]="name"></ion-input>
     </ion-item>
-    <ion-item lines="Password">
+    <ion-item lines="Password" color="fermgray">
       <ion-label position="stacked" >Password</ion-label>
       <ion-input type="Password" placeholder="Enter password"  [(ngModel)]="family"></ion-input>
     </ion-item>
-    <ion-item detail="true" (click)="toPage()">
+    <ion-item detail="true" (click)="toPage()" color="fermgray">
    
       <ion-label>
         <h3>Adresses</h3>

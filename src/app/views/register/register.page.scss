@@ -56,6 +56,30 @@ figure{
     max-width: 100px;
     overflow: hidden;
 }
-input{
-    padding: 100px;
+// input{
+//     padding: 100px;
+// }
+///////////////////////////////////////////////////////////////
+// styles steph
+//////////////////////////////////////////////////////////////
+
+// .input{
+//     padding: 10px!important;
+//     padding: 100px;
+//     background: white;
+//     border-radius: 8px;
+// }
+
+
+// .container-form{
+//     padding: 30px;
+//     margin-top: 40px;
+// }
+
+.container-form > div{
+    margin-bottom: 1rem;
 }
+.input:focus-within{
+    border: 1px solid;
+    border-color: var(--ion-color-fermsecondary);
+ }

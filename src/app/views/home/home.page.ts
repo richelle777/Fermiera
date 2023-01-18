@@ -60,7 +60,8 @@ export class HomePage implements OnInit {
   }
 
   logOut(){
+    localStorage.removeItem("registerInfos");
     localStorage.removeItem("customer");
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 }

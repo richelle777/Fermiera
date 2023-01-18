@@ -6,9 +6,9 @@ ion-title{
     font-weight: bold;
 }
 
-ion-content{
+ion-toolbar, ion-content{
     --background: var(--ion-color-fermgray);
-    font-family: rubik;
+    // --border-width:0px!important;
 }
 
 ion-badge{

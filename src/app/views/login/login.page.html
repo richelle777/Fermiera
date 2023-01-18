@@ -12,7 +12,7 @@
   <form class="container-form" [formGroup]="validationFormUser" (ngSubmit)="loginUser(validationFormUser.value)">
     <!-- <div class="container-form"> -->
     <div>
-      <ion-input class="input" formControlName="email" placeholder="Email" clearInput color="fermtertiary"
+      <ion-input class="input" formControlName="email" placeholder="Email" clearInput color="fermprimary"
         [ngClass]="{ 'error-input': (validationFormUser.get('email').hasError(validationUserMessage.email[0].type) || validationFormUser.get('email').hasError(validationUserMessage.email[1].type)) && (validationFormUser.get('email').dirty || validationFormUser.get('email').touched)}">
         <ion-icon name="mail-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
@@ -31,7 +31,7 @@
 
     <div class="mt-5">
       <ion-input class="input" formControlName="password" placeholder="**************" required clearInput
-        color="fermtertiary"
+        color="fermprimary"
         [ngClass]="{ 'error-input': (validationFormUser.get('password').hasError(validationUserMessage.password[0].type) || validationFormUser.get('password').hasError(validationUserMessage.password[1].type)) && (validationFormUser.get('password').dirty || validationFormUser.get('password').touched)}">
         <!-- [disabled]="!validationFormUser.valid" -->
         <ion-icon name="lock-closed-outline" color="fermtertiary" class="icon"></ion-icon>
