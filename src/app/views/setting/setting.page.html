@@ -11,20 +11,24 @@
       <ion-img class="rounded" src="assets/img/profile.png"></ion-img>
     </div>
   </div>
+  <form  [formGroup]="Info" (ngSubmit)="save()">
   <div class="user-info">
     <p style="text-align: center;font-weight: 700" color="Primary">Please Fill information Fruits</p>
-    <form  [formGroup]="Info" (ngSubmit)="save()">
       <ion-item >
         <ion-label  position="stacked">Nom&Prenom</ion-label>
-        <ion-input type="text" placeholder=""  [(ngModel)]="nom">{{userbody.nom}}</ion-input>
+        <ion-input type="text" placeholder="{{userbody.nom}}"  formControlName="nom"></ion-input>
       </ion-item>
       <ion-item  >
         <ion-label  position="stacked">Email</ion-label>
-        <ion-input type="text" placeholder=""  [(ngModel)]="email">{{userbody.email}}</ion-input>
+        <ion-input type="text" placeholder="{{userbody.email}}"   formControlName="email"></ion-input>
       </ion-item>
       <ion-item lines="Password">
         <ion-label position="stacked" >Password</ion-label>
-        <ion-input type="Password" placeholder=""  [(ngModel)]="motDePasse">{{userbody.motDePasse}}</ion-input>
+        <ion-input type="Password" placeholder="{{userbody.motDePasse}}"   formControlName="motDePasse"></ion-input>
+      </ion-item>
+      <ion-item lines="Password">
+        <ion-label position="stacked" >telephone</ion-label>
+        <ion-input type="Password" placeholder="{{userbody.telephone}}"   formControlName="telephone"></ion-input>
       </ion-item>
       <ion-item detail="true">
         <ion-label>
@@ -32,12 +36,11 @@
           <p>Detail for adresses</p>
         </ion-label>
       </ion-item>
-    </form>
-    
   </div>
   <div class="container-submit ion-margin-top d-flex ion-justify-content-center ">
-    <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center"><ion-text color="fermwhite">Enregistrer</ion-text></button>
+    <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center" type="submit" ><ion-text color="fermwhite">Enregistrer</ion-text></button>
   </div>
+</form>
 </div>
 
 </ion-content>
