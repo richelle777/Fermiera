@@ -13,12 +13,12 @@ export class RegisterPage implements OnInit {
   registerForm: any;
   customer : any;
   badEmail = false;
-  id = 0;
+
+
   constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService) {
-    this.id = this.id +1;
    }
+
   ionViewDidEnter(){
-    this.id = this.id + 1;
   }
   ngOnInit() {
     this.validationFormUser = this.formbuilder.group({
@@ -65,7 +65,7 @@ export class RegisterPage implements OnInit {
 
   registerUser(registerForm){
     console.log(registerForm);
-    registerForm.id = "e";
+
     this.authService.register(registerForm).subscribe((data) => {
       this.customer = data;
       console.log(this.customer);

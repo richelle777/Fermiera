@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/public1/http.service';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,14 +15,18 @@ import { HttpService } from 'src/app/services/public1/http.service';
 export class LoginPage implements OnInit {
   validationFormUser: FormGroup;
   connexionForm:ConnexionForm;
+
   userInfo:any;
+
   customer:any;
   emailReceive = "";
   customerReceive = "";
   badEmail = false;
   badPassword = false;
 
+
   constructor( private router:Router , public formbuilder: FormBuilder , private authService:AuthService, private httpclient: HttpService) { 
+
     const retrieve = localStorage.getItem("registerInfos");
     this.customer = JSON.parse(retrieve);
 
@@ -75,6 +80,7 @@ export class LoginPage implements OnInit {
       }
       else{
         localStorage.setItem("customer", JSON.stringify(this.customer));
+
         // recuperer les infos de l'utilisateur
         this.httpclient.getInfoCustomer(this.customer.body.email).then((ele)=>{
           console.log('ele',ele);
@@ -85,6 +91,7 @@ export class LoginPage implements OnInit {
 
         
         
+
         this.router.navigate(['tab/home'])
       }
     })
