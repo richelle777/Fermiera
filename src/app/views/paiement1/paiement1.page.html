@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar class="">
+    <div class="d-flex px-18">
+      <div>
+        <ion-buttons>
+          <ion-back-button ></ion-back-button>
+        </ion-buttons>
+      </div>
+      <div class="m-auto">
+        <ion-title  class="text-bold">paiement1</ion-title>
+      </div>
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 >Price 
+    <p>50 Fcfa</p>
+  </h1>
+  <div class="first-form">
+    <div class="from">
+      <h2 class="text-bold">Card Number</h2>      
+        <ion-item>
+          <ion-input type="number" id="numb" placeholder="XXXXXXXX" size="20" ></ion-input>
+        </ion-item>
+    </div>
+    <div class="form1">
+      <div id="valid">       
+        <h2 class="text-bold">Valid</h2>      
+        <ion-item>
+          <ion-input type="number" id="numb" placeholder="XXXXX" size="10" maxlength="10" ></ion-input>
+        </ion-item>
+      </div>
+      <div id="cvv">        
+        <h2 class="text-bold">CVV</h2>      
+        <ion-item>
+          <ion-input type="number" id="numb" placeholder="XXXXX" size="10" maxlength="10" ></ion-input>
+        </ion-item>
+      </div>
+    </div>
+    <div class="form2">     
+      <h2 class="text-bold">Card Name</h2>      
+        <ion-item>
+          <ion-input type="text" id="numb" placeholder="XXXXXXXX" ></ion-input>
+        </ion-item>
+    </div><br>
+    <p class="text-bold" > <ion-checkbox color="fermgreendark" ></ion-checkbox> Enregistrer les informations    </p> <br>
+    <div class="ion-text-center" id="enre">
+        <ion-button  size="120" color="fermgreendark">BUY</ion-button>
+    </div>
+  </div>
+</ion-content>

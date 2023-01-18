@@ -113,7 +113,16 @@ const routes: Routes = [
   {
     path: 'add-address',
     loadChildren: () => import('./views/add-address/add-address.module').then( m => m.AddAddressPageModule)
+  },  {
+    path: 'paiement',
+    loadChildren: () => import('./views/paiement/paiement.module').then( m => m.PaiementPageModule)
   },
+  {
+    path: 'paiement1',
+    loadChildren: () => import('./views/paiement1/paiement1.module').then( m => m.Paiement1PageModule)
+  },
+
+ 
   
 
 
