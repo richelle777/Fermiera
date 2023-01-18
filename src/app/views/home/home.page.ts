@@ -21,6 +21,7 @@ export class HomePage implements OnInit {
     const retrieve = localStorage.getItem("customer");
     this.customer = JSON.parse(retrieve);
     this.initials = this.customer?.body?.email[0]+this.customer.body.email[1];
+
     console.log(this.initials);
     
     // this.httpSevice.listArticles().then((data) => {

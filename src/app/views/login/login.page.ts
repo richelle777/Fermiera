@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormGroup , FormBuilder , Validators , FormControl} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { HttpService } from 'src/app/services/public1/http.service';
+
 
 
 @Component({
@@ -13,13 +15,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginPage implements OnInit {
   validationFormUser: FormGroup;
   connexionForm:ConnexionForm;
+
+  userInfo:any;
+
   customer:any;
   emailReceive = "";
   customerReceive = "";
   badEmail = false;
   badPassword = false;
 
-  constructor( private router:Router , public formbuilder: FormBuilder , private authService:AuthService) { 
+
+  constructor( private router:Router , public formbuilder: FormBuilder , private authService:AuthService, private httpclient: HttpService) { 
+
     const retrieve = localStorage.getItem("registerInfos");
     this.customer = JSON.parse(retrieve);
 
@@ -73,6 +80,18 @@ export class LoginPage implements OnInit {
       }
       else{
         localStorage.setItem("customer", JSON.stringify(this.customer));
+
+        // recuperer les infos de l'utilisateur
+        this.httpclient.getInfoCustomer(this.customer.body.email).then((ele)=>{
+          console.log('ele',ele);
+          this.userInfo = ele
+          console.log('userInfo',this.userInfo);
+        this.httpclient.setuserInfos(this.userInfo)
+        })
+
+        
+        
+
         this.router.navigate(['tab/home'])
       }
     })

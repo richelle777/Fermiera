@@ -10,6 +10,7 @@ import { element } from 'protractor';
 
 export class HttpService {
   baseUrl  = new BaseUrl();
+  userInfos:any;
 
   constructor(private _http :HttpClient) { }
 
@@ -49,6 +50,21 @@ export class HttpService {
   async commandes(id_user){
     return this._http.get(this.baseUrl.url+"commande/user/"+id_user,this.baseUrl.httOptions).toPromise()
   }
+
+
+  async getInfoCustomer(email){
+    return this._http.get(this.baseUrl.url + "customer/infos/" + email,this.baseUrl.httOptions).toPromise()
+  }
+
+  setuserInfos(data){
+    this.userInfos = data
+  }
+
+  getuserInfos(){
+    return this.userInfos
+  }
+
+
 
   async deleteArticleFromCommande(idArticle){
     return this._http.get(this.baseUrl.url+idArticle+"/delete",this.baseUrl.httOptions).toPromise()

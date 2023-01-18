@@ -14,8 +14,10 @@ export class RegisterPage implements OnInit {
   customer : any;
   badEmail = false;
 
+
   constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService) {
    }
+
   ionViewDidEnter(){
   }
   ngOnInit() {
@@ -63,6 +65,7 @@ export class RegisterPage implements OnInit {
 
   registerUser(registerForm){
     console.log(registerForm);
+
     this.authService.register(registerForm).subscribe((data) => {
       this.customer = data;
       console.log(this.customer);

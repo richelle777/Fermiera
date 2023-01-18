@@ -13,16 +13,18 @@ import { AddAddressPage } from '../add-address/add-address.page';
   styleUrls: ['./addresses.page.scss'],
 })
 export class AddressesPage implements OnInit {
+  supp = 0;
   commandes;
   open:number
   local;
-  iduser = "CU0117"
-  constructor(private modalCtrl: ModalController, private httpservice:ApiService, private router:Router, private gestModal:GestionPagesService) {
+  user:any;
+  constructor(private modalCtrl: ModalController, private httpservice:ApiService, private router:Router, private gestModal:GestionPagesService, private http2:HttpService) {
+    this.user = this.http2.getuserInfos();
     setInterval(()=>{
       this.open = this.gestModal.getModal()
 
-      if (this.open == -1){
-        this.httpservice.listLocalisations(this.iduser).then((data)=>{
+      if (this.open == -1 || this.supp == 1){
+        this.httpservice.listLocalisations(this.user.id).then((data)=>{
           console.log(data);
           this.commandes = data;
       
@@ -54,31 +56,16 @@ export class AddressesPage implements OnInit {
   }
 
   async deletelocalisation(idlocalisation){
+   this.supp = 1;
     this.httpservice.hideLocalisation(idlocalisation).then((data)=>{
       this.router.navigate(['addresses']);
     })
   }
 
   ionViewDidEnter(){
-  //   this.httpservice.commandes(this.iduser).then((data) =>{
-  //     console.log(data);
-      
-  //     this.commandes = data
-  //     this.local.push(this.commandes[0]['livraisonDto']['localisationDto'])
-  //     for (let index = 1; index < this.commandes.length; index++) {
-  //       if (this.commandes[index]['livraisonDto']['localisationDto']['id'] != this.commandes[index-1]['livraisonDto']['localisationDto']['id'] ){
-  //            this.local.push(this.commandes[index]['livraisonDto']['localisationDto'])
-  //       }
+    this.supp = 0;
 
-        
-  //     } 
-
-  //     console.log(this.local);
-      
-      
-  // })
-
-  this.httpservice.listLocalisations(this.iduser).then((data)=>{
+  this.httpservice.listLocalisations(this.user.id).then((data)=>{
     console.log(data);
     this.commandes = data;
 
