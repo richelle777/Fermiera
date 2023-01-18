@@ -21,6 +21,6 @@ export class AuthService {
     )
   }
   updateCustommer(updateForm){
-    return this._http.get(this.baseUrl.url+"customer/update", updateForm)
+    return this._http.post(this.baseUrl.url+"customer/update", updateForm)
   }
 }

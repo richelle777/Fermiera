@@ -28,6 +28,7 @@ export class PanierPage implements OnInit {
   _!:number;
   ngOnInit() {
     this.numberProduit=0;
+    this._=0;
   }
   ionViewDidEnter(){
     this.httpSevice.listArticleCommande().then((data) => {
@@ -41,11 +42,13 @@ export class PanierPage implements OnInit {
       this.article=data;
       console.log(this.article)
       
-    for (let i of this.article){
-      for (let j of this.Encours){
-        if (i.id == j.id.idArticle){
-          this.panier[this._].article=i;
-          this.panier[this._].quantite=j.quantite;
+    for (let article of this.article){
+      for (let articom of this.Encours){
+        if (article.id == articom.id.idArticle){
+          this.panier..push(article);
+          this.panier.push(articom.quantite)
+          console.log("le panier",this.panier);
+         // this.panier[this._].quantite=articom.quantite;
         }
       }
       this._=this._+1;
