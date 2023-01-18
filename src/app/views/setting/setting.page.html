@@ -15,15 +15,15 @@
     <p style="text-align: center;font-weight: 700" color="Primary">Please Fill information Fruits</p>
     <ion-item >
       <ion-label  position="stacked">Nom&Prenom</ion-label>
-      <ion-input type="text" placeholder="Stepahnie Siewe"  [(ngModel)]="genus"></ion-input>
+      <ion-input type="text" placeholder=""  [(ngModel)]="nom">{{userbody.nom}}</ion-input>
     </ion-item>
     <ion-item  >
       <ion-label  position="stacked">Email</ion-label>
-      <ion-input type="text" placeholder="Enter email"  [(ngModel)]="name"></ion-input>
+      <ion-input type="text" placeholder="Enter email"  [(ngModel)]="name">{{userbody.email}}</ion-input>
     </ion-item>
     <ion-item lines="Password">
       <ion-label position="stacked" >Password</ion-label>
-      <ion-input type="Password" placeholder="Enter password"  [(ngModel)]="family"></ion-input>
+      <ion-input type="Password" placeholder="Enter password"  [(ngModel)]="password">{{userbody.motDePasse}}</ion-input>
     </ion-item>
     <ion-item detail="true">
       <ion-label>
