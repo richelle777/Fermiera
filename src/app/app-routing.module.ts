@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
@@ -54,15 +53,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 //     loadChildren: () => import('./views/panier/panier.module').then( m => m.PanierPageModule)
 //   },
 
-const routes: Routes = [
+// const routes: Routes = [
   
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-=======
-import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+//   {
+//     path: '',
+//     redirectTo: 'login',
+//     pathMatch: 'full'
+// =======
+
 
 // const routes: Routes = [
   
@@ -176,22 +174,15 @@ const routes: Routes = [
   {
     path: 'add-address',
     loadChildren: () => import('./views/add-address/add-address.module').then( m => m.AddAddressPageModule)
-  },  {
+  },
+  {
     path: 'paiement',
     loadChildren: () => import('./views/paiement/paiement.module').then( m => m.PaiementPageModule)
->>>>>>> 73923dea808b74ea6a6ad47edab19690e5213814
   },
   {
     path: 'paiement1',
     loadChildren: () => import('./views/paiement1/paiement1.module').then( m => m.Paiement1PageModule)
   },
-
- 
-  
-
-
-
-
 ];
 
 @NgModule({
