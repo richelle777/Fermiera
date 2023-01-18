@@ -31,11 +31,11 @@ export class LoginPage implements OnInit {
     this.customer = JSON.parse(retrieve);
 
     this.emailReceive = this.customer?.email;
-    console.log(this.emailReceive);
+    // console.log(this.emailReceive);
   }
   
   ngOnInit() {
-    console.log(this.emailReceive);
+    // console.log(this.emailReceive);
     
     this.validationFormUser = this.formbuilder.group({
       email: new FormControl(this.emailReceive , Validators.compose([
