@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details-fruits</ion-title>
+    <ion-title>details-articles</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -25,10 +25,10 @@
           </div>
           <div class="first-info--name">
             <ion-text>
-              {{fruit.nom}}
+              {{article.nom}}
             </ion-text>
             <div class="price">
-              {{fruit.prixU}} Fcfa
+              {{article.prixU}} Fcfa
             </div>
           </div>
         </div>
@@ -42,7 +42,7 @@
                 <ion-text>Vendeur:</ion-text>
             </div>
             <div class="info-text--2">
-                <ion-text>{{fruit.fermierDto.nom}}</ion-text>
+                <ion-text>{{article.fermierDto.nom}}</ion-text>
             </div>
           </div>
         </div>
@@ -59,10 +59,10 @@
       </div>
       <div class="description">
           <h3>Description:</h3>
-          <ion-text>{{fruit.description}}</ion-text>
+          <ion-text>{{article.description}}</ion-text>
       </div>
       <div class="container-submit">
-        <button  class="submit-button"><ion-text color="fermwhite">  ADD TO CART</ion-text> </button>
+        <button  class="submit-button" (click)="addCommande()"><ion-text color="fermwhite">  ADD TO CART</ion-text> </button>
       </div>
     </div>
 </ion-content>

@@ -20,4 +20,7 @@ export class AuthService {
     return this._http.post(this.baseUrl.url+"customer/createaccount", registerForm
     )
   }
+  async updateCustommer(updateForm){
+    return this._http.get(this.baseUrl.url+"/update", updateForm)
+  }
 }
