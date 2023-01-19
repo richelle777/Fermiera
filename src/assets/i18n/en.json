@@ -1,5 +1,6 @@
 {
     "SIDEMENU": {
+        "menu": "SIDE",
         "accueil": "Home",
         "commandes": "All my orders ",
         "suivi": "Order tracking"
@@ -8,7 +9,8 @@
         "logout": "LogOut",
        "recherche": "Search",
        "text-card": "100% Organic, produced by our land",
-        "title-cat": "List of categories",
+       "title-cat1": "List ofs",
+        "title-cat2": "categories",
         "title-moto": "Fast and efficient free delivery"
     }
 }

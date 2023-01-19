@@ -1,5 +1,6 @@
 {
     "SIDEMENU": {
+        "menu": "Menu",
         "accueil": "Accueil",
         "commandes": "Toutes mes commandes",
         "suivi": "Suivi des commandes"
@@ -8,7 +9,8 @@
         "logout": "Deconnexion",
        "recherche": "Rechercher",
        "text-card": "100% Bio, produit par notre terre",
-        "title-cat": "Liste des categories",
+        "title-cat1": "Liste des",
+        "title-cat2": "categories",
         "title-moto": "Livraison gratuite rapide et efficace"
     }
 }
