@@ -1,6 +1,12 @@
 ion-content{
   --background: #fff;
 }
+
+ion-toolbar, ion-content{
+  --background: var(--ion-color-fermgray);
+  // --border-width:0px!important;
+}
+
 .section-title{
   margin: 20px;
   border-radius: 10px;

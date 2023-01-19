@@ -135,10 +135,6 @@
     padding-left: 18px;
     padding-right: 18px;
 }
-ion-toolbar, ion-content{
-    --background: var(--ion-color-fermgray);
-    // --border-width:0px!important;
-}
 .rounded{
     border-radius: 30px;
 }
@@ -153,4 +149,7 @@ ion-toolbar, ion-content{
 }
 .ml-5{
     margin-left : 5px;
+}
+.d-block{
+    display: block;
 }

@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   constructor(private httpSevice:HttpService , private router:Router) { 
     const retrieve = localStorage.getItem("customer");
     this.customer = JSON.parse(retrieve);
-    this.initials = this.customer?.body?.email[0]+this.customer.body.email[1];
+    this.initials = this.customer?.body?.email[0]+this.customer?.body?.email[1];
 
     console.log(this.initials);
     
@@ -57,5 +57,11 @@ export class HomePage implements OnInit {
     //console.log(obj);
     this.router.navigate(['liste-articles'])
     // this.router.navigate(['tab/liste-articles/',obj.nom])
+  }
+
+  logOut(){
+    localStorage.removeItem("registerInfos");
+    localStorage.removeItem("customer");
+    this.router.navigate(['login']);
   }
 }

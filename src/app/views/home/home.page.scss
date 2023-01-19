@@ -85,3 +85,7 @@ p{
 .fs-21{
     font-size: 21px
 }
+ion-toolbar, ion-content{
+    --background: var(--ion-color-fermgray);
+    // --border-width:0px!important;
+}

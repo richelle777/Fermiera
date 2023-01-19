@@ -14,9 +14,20 @@ export class RegisterPage implements OnInit {
   customer : any;
   badEmail = false;
 
+  region: string;
+  residence:string;
+  longitude:string;
+  latitude:string;
+  country:string;
+  city:string;
+
+  isFirstStep = true;
+  isSecondStep = false;
+
 
   constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService) {
-   }
+
+  }
 
   ionViewDidEnter(){
   }
@@ -37,7 +48,26 @@ export class RegisterPage implements OnInit {
         Validators.required,
         Validators.min(9)
         // Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-      ]))
+      ])),
+      region: new FormControl('' , Validators.compose([
+        Validators.required,
+      ])),
+      residence: new FormControl('' , Validators.compose([
+        Validators.required,
+      ])),
+      longitude: new FormControl('' , Validators.compose([
+        Validators.required,
+      ])),
+      latitude: new FormControl('' , Validators.compose([
+        Validators.required,
+      ])),
+      country: new FormControl('' , Validators.compose([
+        Validators.required,
+      ])),
+      city: new FormControl('' , Validators.compose([
+        Validators.required,
+      ])),
+      
     })
   }
 
@@ -56,6 +86,24 @@ export class RegisterPage implements OnInit {
     telephone:[
       {type:"required", message:"Please enter your phone number!"},
       {type:"min", message:"The phone number must be have 9 numbers"}
+    ],
+    region:[
+      {type:"required", message:"Please enter your region!"}
+    ],
+    residence:[
+      {type:"required", message:"Please enter your residence!"}
+    ],
+    longitude:[
+      {type:"required", message:"Please enter your longitude!"}
+    ],
+    latitude:[
+      {type:"required", message:"Please enter your latitude!"}
+    ],
+    country:[
+      {type:"required", message:"Please enter your country!"}
+    ],
+    city:[
+      {type:"required", message:"Please enter your city!"}
     ]
   }
 
@@ -77,5 +125,13 @@ export class RegisterPage implements OnInit {
         this.router.navigate(['login'])
       }
     })
+  }
+  goToSecondStep(){
+    this.isSecondStep = true;
+    this.isFirstStep = false;
+  }
+  goToFirstStep(){
+    this.isSecondStep = false;
+    this.isFirstStep = true;
   }
 }
