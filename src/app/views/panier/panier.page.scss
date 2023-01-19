@@ -10,7 +10,14 @@
     padding: 0;
   }
 }
-
+ion-card{
+  --background:white;
+  
+}
+ion-toolbar{
+  --background:white;
+  color:var(--ion-color-fermgreendark);
+}
 .custom-button{
   background:var(--ion-color-fermgreenlight);
   width:35px ;

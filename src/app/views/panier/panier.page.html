@@ -56,7 +56,7 @@
      </div>  
    </ion-card>
   </div>
-  <div *ngIf="!loaded && present">
+  <div *ngIf="!loaded && !present">
    <ion-card class="content d-flex ion-margin-bottom skeleton-card" *ngFor="let article of forcer" >
     <ion-thumbnail class="image">
       <ion-skeleton-text [animated]="true" class="skeletton-img"></ion-skeleton-text>
@@ -82,7 +82,7 @@
     </div>
   </ion-card>
  </div>
-<div class="checkout ion-margin-top" *ngIf="!loaded">
+<div class="checkout ion-margin-top" *ngIf="!loaded  && !present">
   <ion-card class="ion-padding skeleton-card">
     <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
       <ion-skeleton-text [animated]="true" style="width: 100%" class="m-0 mt-5"></ion-skeleton-text>
@@ -98,7 +98,7 @@
     </div>
   </ion-card>
 </div>
-<div class="checkout ion-margin-top" *ngIf="loaded">
+<div class="checkout ion-margin-top" *ngIf="loaded && present">
   <ion-card class="ion-padding"  mode="md">
     <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
       <ion-title>Total HT</ion-title>

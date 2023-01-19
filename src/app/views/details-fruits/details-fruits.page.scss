@@ -27,6 +27,9 @@ ion-toolbar, ion-content{
   border-radius: 5px;
   height: 40px;
 }
+ion-text,h3{
+  color:  var(--ion-color-fermprimary);
+}
 .price{
 margin-top: 18px;
 }
@@ -72,6 +75,15 @@ ion-icon{
     font-size: 64px;
 
   }
+}
+span{
+  color:var(--ion-color-fermprimary)
+}
+ion-toolbar{
+  color:var(--ion-color-fermgreendark);
+}
+button ion-text{
+  color: white;
 }
 .container-submit {
   & ion-icon{

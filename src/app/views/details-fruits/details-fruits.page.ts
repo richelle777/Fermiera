@@ -12,7 +12,7 @@ export class DetailsFruitsPage implements OnInit {
   numberProd:number;
   fruit:any
   ngOnInit() {
-    this.numberProd=0;
+    this.numberProd=1;
     const retrieve=localStorage.getItem('detailF');
     // @ts-ignore
     this.article=JSON.parse(retrieve);
@@ -29,7 +29,7 @@ export class DetailsFruitsPage implements OnInit {
   }
   remove(){
     if(this.numberProd<=0){
-     this.numberProd=0;
+     this.numberProd=1;
     }
     else{
       this.numberProd=this.numberProd-1;
