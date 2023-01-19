@@ -1,28 +1,38 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" menuId="pearl_side">
-      <ion-content>
+      <ion-content color="fermgray">
         <ion-menu-toggle  autoHide="false">
-          <ion-toolbar mode="ios">
-            <ion-title>Menu</ion-title> 
+          <ion-toolbar mode="ios"  color="fermgray">
+            <ion-title>{{'SIDEMENU.menu' | translate}}</ion-title> 
            </ion-toolbar>
-           <ion-item [routerLink]=" [ 'tab/home' ] ">
+           <ion-item [routerLink]=" [ 'tab/home' ]"  color="fermgray">
             <ion-icon slot="start" name="home-outline"></ion-icon>            
             <ion-label>
-              Accueil
+              {{'SIDEMENU.accueil' | translate}}
             </ion-label>
           </ion-item>      
-          <ion-item [routerLink]=" [ 'tab/all-orders' ] ">
+          <ion-item [routerLink]=" [ 'tab/all-orders' ]" color="fermgray">
             <ion-icon slot="start" name="file-tray-stacked-outline"></ion-icon>            
             <ion-label>
-              Toutes mes commandes
+              {{'SIDEMENU.commandes' | translate}}
             </ion-label>
           </ion-item>
-          <ion-item [routerLink]=" [ 'tab/follow-order' ] ">
-            <ion-icon slot="start" name="trending-up-outline"></ion-icon>            <ion-label>
-              Suivi commandes
+          <ion-item [routerLink]=" [ 'tab/follow-order' ] "  color="fermgray">
+            <ion-icon slot="start" name="trending-up-outline"></ion-icon>            
+            <ion-label>
+              {{'SIDEMENU.suivi' | translate}}
             </ion-label>
           </ion-item>
+          <ion-item  color="fermgray">
+            <ion-icon slot="start" name="language-outline"></ion-icon>
+            <ion-select placeholder="Francais" (ionChange)="handleChange($event)"  color="fermgreendark">
+              <ion-select-option :value="{{item.value}}" mode="ios" value="item" *ngFor="let item of lang" (click)="Change(item.value)" >{{item.text}}</ion-select-option>
+            </ion-select>
+            <!-- <ion-label *ngFor="let item of lang" (click)="Change(item.value)">{{item.text}}</ion-label>
+           -->
+          </ion-item>
+          
         </ion-menu-toggle>
       </ion-content>
     </ion-menu>

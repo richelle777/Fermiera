@@ -69,7 +69,7 @@ export class HttpService {
 
 
   async deleteArticleFromCommande(idArticle){
-    return this._http.get(this.baseUrl.url+idArticle+"/delete",this.baseUrl.httOptions).toPromise()
+    return this._http.get(this.baseUrl.url+"commandearticle/"+idArticle+"/delete",this.baseUrl.httOptions).toPromise()
   }
   async updateArticleFromCommande(qte,article){
     return this._http.get(this.baseUrl.url+qte/article+"/update",this.baseUrl.httOptions).toPromise()

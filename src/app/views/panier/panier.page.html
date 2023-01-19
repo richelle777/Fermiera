@@ -3,7 +3,7 @@
     <div class="d-flex">
       <div>
         <ion-buttons slot="start">
-          <ion-back-button color="fermdark"></ion-back-button>
+          <ion-back-button color="fermprimary"></ion-back-button>
         </ion-buttons>
       </div>
       <div class="m-auto">
@@ -11,7 +11,7 @@
       </div>
       <div>
         <ion-buttons>
-          <ion-menu-button color="fermdark"></ion-menu-button>
+          <ion-menu-button color="fermprimary"></ion-menu-button>
         </ion-buttons>
       </div>
     </div>
@@ -19,15 +19,21 @@
 </ion-header>
 
 <ion-content class="bg-content">
- <div *ngIf="loaded">
-   <ion-card class="content d-flex ion-margin-bottom " *ngFor="let article of forcer" >
+  <div *ngIf="!present">
+    <div class="image-panier" >
+      <ion-img src="assets/img/panier04.png"></ion-img>
+    </div>
+    <p class="text-center"><ion-text color="fermorange">Aucun article dans le panier</ion-text></p>
+  </div>
+ <div *ngIf="loaded && present">
+   <ion-card class="content d-flex ion-margin-bottom " *ngFor="let article of forcer" mode="md" >
      <ion-thumbnail class="image">
        <ion-img class="rounded" src="assets/img/big_fraise.jpg"></ion-img>
      </ion-thumbnail>
      <div class="info-content">
        <div class="info-content-titleO d-flex ion-justify-content-between ">
          <ion-title style="font-size:14px">{{article.article.nom}}</ion-title>
-         <button class="custom-button "><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
+         <button class="custom-button " (click)="delete(article)"><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
        </div>
        <div class="info-content-tile1 d-flex ion-justify-content-between">
          <!-- <div class="name-categorie d-flex ion-align-items-center">
@@ -44,13 +50,13 @@
          <div class="u--color d-flex ion-align-items-center">
            <ion-button fill="clear" (click)="add(article)"><ion-icon name="add-outline"></ion-icon></ion-button>
            <span>{{article.quantiteModif}}</span>
-           <ion-button fill="clear" (click)="remove(article)"><ion-icon name="remove-outline"></ion-icon></ion-button>
+           <ion-button fill="clear"  (click)="remove(article)"><ion-icon name="remove-outline"></ion-icon></ion-button>
          </div>
        </div>
      </div>  
    </ion-card>
   </div>
-  <div *ngIf="!loaded">
+  <div *ngIf="!loaded && !present">
    <ion-card class="content d-flex ion-margin-bottom skeleton-card" *ngFor="let article of forcer" >
     <ion-thumbnail class="image">
       <ion-skeleton-text [animated]="true" class="skeletton-img"></ion-skeleton-text>
@@ -76,7 +82,7 @@
     </div>
   </ion-card>
  </div>
-<div class="checkout ion-margin-top" *ngIf="!loaded">
+<div class="checkout ion-margin-top" *ngIf="!loaded  && !present">
   <ion-card class="ion-padding skeleton-card">
     <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
       <ion-skeleton-text [animated]="true" style="width: 100%" class="m-0 mt-5"></ion-skeleton-text>
@@ -92,8 +98,8 @@
     </div>
   </ion-card>
 </div>
-<div class="checkout ion-margin-top" *ngIf="loaded">
-  <ion-card class="ion-padding">
+<div class="checkout ion-margin-top" *ngIf="loaded && present">
+  <ion-card class="ion-padding"  mode="md">
     <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
       <ion-title>Total HT</ion-title>
       <ion-text>{{total}} FCFA</ion-text>
@@ -106,8 +112,8 @@
       <ion-title>Total</ion-title>
       <ion-text>{{total}} Fcfa</ion-text>
     </div>
-    <div class="container-submit ion-margin-top">
-      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center" [routerLink]="['../paiement']"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
+    <div class="container-submit ion-margin-top d-flex ion-justify-content-center">
+      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" [routerLink]="['../paiement']"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
     </div>
   </ion-card>
 </div>
