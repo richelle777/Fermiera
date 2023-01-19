@@ -20,13 +20,13 @@
 
 <ion-content class="bg-content">
  <div *ngIf="loaded">
-   <ion-card class="content d-flex ion-margin-bottom " *ngFor="let article of Tab" >
+   <ion-card class="content d-flex ion-margin-bottom " *ngFor="let article of forcer" >
      <ion-thumbnail class="image">
        <ion-img class="rounded" src="assets/img/big_fraise.jpg"></ion-img>
      </ion-thumbnail>
      <div class="info-content">
        <div class="info-content-titleO d-flex ion-justify-content-between ">
-         <ion-title style="font-size:14px">{{article.nom}}</ion-title>
+         <ion-title style="font-size:14px">{{article.article.nom}}</ion-title>
          <button class="custom-button "><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
        </div>
        <div class="info-content-tile1 d-flex ion-justify-content-between">
@@ -34,12 +34,12 @@
            <ion-icon name="flame-outline"></ion-icon> <ion-text>Baies</ion-text>
          </div> -->
          <div class="name-seller  d-flex ion-align-items-center">
-           <ion-icon name="person-circle"></ion-icon>&nbsp; &nbsp;  <ion-text> {{article.fermierDto.nom}}</ion-text>
+           <ion-icon name="person-circle"></ion-icon>&nbsp; &nbsp;  <ion-text> {{article.article.fermierDto.nom}}</ion-text>
          </div>
        </div>
        <div class="info-conent-title2 d-flex ion-align-items-center  ion-justify-content-between">
          <div class="price">
-           <ion-text class="ion-text-lg-start">{{article.prixU}} Fcfa</ion-text>
+           <ion-text class="ion-text-lg-start">{{article.article.prixU}} Fcfa</ion-text>
          </div>
          <div class="u--color d-flex ion-align-items-center">
            <ion-button fill="clear" (click)="add(article)"><ion-icon name="add-outline"></ion-icon></ion-button>
@@ -51,7 +51,7 @@
    </ion-card>
   </div>
   <div *ngIf="!loaded">
-   <ion-card class="content d-flex ion-margin-bottom skeleton-card" *ngFor="let article of Tab" >
+   <ion-card class="content d-flex ion-margin-bottom skeleton-card" *ngFor="let article of forcer" >
     <ion-thumbnail class="image">
       <ion-skeleton-text [animated]="true" class="skeletton-img"></ion-skeleton-text>
     </ion-thumbnail>
@@ -60,9 +60,6 @@
         <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
       </div>
       <div class="info-content-tile1 d-flex ion-justify-content-between">
-        <!-- <div class="name-categorie d-flex ion-align-items-center">
-          <ion-icon name="flame-outline"></ion-icon> <ion-text>Baies</ion-text>
-        </div> -->
         <div class="name-seller  d-flex ion-align-items-center">
           <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
         </div>
@@ -73,7 +70,6 @@
         </div>
         <div class="u--color d-flex ion-align-items-center">
           <ion-skeleton-text [animated]="true" style="width: 50px" class="m-0 mt-5"></ion-skeleton-text>
-          <span></span>
           <ion-skeleton-text [animated]="true" style="width:50px" class="m-0 mt-5"></ion-skeleton-text>
         </div>
       </div>

@@ -36,4 +36,7 @@ export class SettingPage implements OnInit {
       this.router.navigate(['tab/home'])
      })
   }
+  toPage(){
+    this.router.navigate(['/addresses'])
+  }
 }

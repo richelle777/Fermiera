@@ -10,7 +10,7 @@ import { Panier } from 'src/app/class/panier';
   styleUrls: ['./panier.page.scss'],
 })
 export class PanierPage implements OnInit {
-  commandeArticle:any
+  commandeArticle:any;
   constructor(private httpSevice:HttpService , private router:Router) {
     this.httpSevice.listArticleCommande().then((data) => {
       this.commandeArticle = data
@@ -25,7 +25,9 @@ export class PanierPage implements OnInit {
   loaded=false;
   Tab: Article[]=[];
   panier: Panier[]=[];
+  total:number;
   _!:number;
+  forcer=new Array<any>;
   ngOnInit() {
     this.numberProduit=0;
     this._=0;
@@ -41,23 +43,29 @@ export class PanierPage implements OnInit {
     this.httpSevice.listArticles().then((data:Article[])=>{
       this.article=data;
       console.log(this.article)
-      
-    for (let article of this.article){
-      for (let articom of this.Encours){
-        if (article.id == articom.id.idArticle){
-          this.panier..push(article);
-          this.panier.push(articom.quantite)
-          console.log("le panier",this.panier);
-         // this.panier[this._].quantite=articom.quantite;
-        }
+      let suivis = new Array<any>;
+      for (let article of this.article){
+         for (let articom of this.Encours){
+            if (article.id == articom.id.idArticle){
+              let forceee = {
+               "article":article,
+               "quantite":articom.quantite,
+               //"pixquantite":this.article[index].articleDto.prixU * this.Encours[indexE].quantity,
+              }
+              this.total = this.total + article.prixU * articom.quantite;
+              console.log("forceee",forceee)
+              suivis.push(forceee)
+              console.log("suivi",suivis);  
+            } 
+         }
       }
-      this._=this._+1;
-    }
-    console.log("le tab",this._);
+      this.forcer=suivis
+      
     })
     setTimeout(() => {
       this.loaded = true;
-    } , 1000)
+     } , 1000)
+    
   }
   add(article:any){
    let a=article.quantite+1;
