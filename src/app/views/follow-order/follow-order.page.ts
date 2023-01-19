@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Panier } from 'src/app/class/panier';
 import { ApiService } from 'src/app/services/public2/api.service';
 import { GestionPagesService } from 'src/app/services/public2/gestion-pages.service';
+import { ActivatedRoute } from '@angular/router';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-follow-order',
@@ -21,7 +23,9 @@ export class FollowOrderPage implements OnInit {
   forcer = new Array<any>;
 
  
-  constructor(private httpclient:ApiService, private gestionPage:GestionPagesService) { }
+  constructor(private httpclient:ApiService, 
+              private gestionPage:GestionPagesService,
+              private router:Router) { }
 
   ngOnInit() {
   }
