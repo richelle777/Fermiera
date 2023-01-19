@@ -5,34 +5,28 @@
   </ion-buttons>
 </ion-toolbar>
 <ion-content>
-    <ion-accordion-group *ngFor="let cmd of order" [multiple]="true" [value]="['first', 'third']">
-      <ion-accordion class="card" value="first">
+    <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+      <ion-accordion *ngFor="let item of historiquecommande" class="card" value="first">
         <ion-item slot="header">
-          <ion-label (click)="goToPage()">Commande {{cmd.id}} </ion-label>
+          <ion-label > Commande {{item.id}}</ion-label>
         </ion-item>
         <div slot="content">
-          <ion-item [routerLink]="[ '/tab/follow-order' ]" lines="none">
+          <ion-item *ngFor="let article of item.articles" [routerLink]="[ '/follow-order' ]" lines="none">
             <ion-label>
-              Broccoli
+              {{article.nom}}
             </ion-label>
-            <ion-badge slot="end"> 125 Fcfa</ion-badge>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>
-              Tomatoes
-            </ion-label>
-            <ion-badge slot="end"> 250 Fcfa</ion-badge>
+            <ion-badge slot="end"> {{article.quantite}} Fcfa</ion-badge>
           </ion-item>
           <div class="paid">
             <ion-item lines="none">
-              <ion-badge slot="end"> <h4><b>Total</b> 375Fcfa</h4></ion-badge>
+              <ion-badge slot="end"> <h4><b>Total</b> {{item.total}} Fcfa</h4></ion-badge>
               <ion-icon color="ferm-greenish" slot="start" name="checkmark-circle"></ion-icon>
-              <h5>Paid</h5>             
+              <h5>{{item.statutCommande}}</h5>             
             </ion-item>
           </div>
         </div>
       </ion-accordion>
-      <ion-accordion class="card" value="second">
+      <!-- <ion-accordion class="card" value="second">
         <ion-item slot="header">
           <ion-label>Commande #002</ion-label>
         </ion-item>
@@ -51,6 +45,6 @@
               </ion-item>
             </div>
         </div>
-      </ion-accordion>
+      </ion-accordion> -->
     </ion-accordion-group>
 </ion-content>
