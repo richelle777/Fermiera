@@ -11,6 +11,7 @@ import { Panier } from 'src/app/class/panier';
 })
 export class PanierPage implements OnInit {
   commandeArticle:any;
+  present=false;
   constructor(private httpSevice:HttpService , private router:Router) {
     this.httpSevice.listArticleCommande().then((data) => {
       this.commandeArticle = data
@@ -49,6 +50,7 @@ export class PanierPage implements OnInit {
       for (let article of this.article){
          for (let articom of this.Encours){
             if (article.id == articom.id.idArticle){
+              this.present=true;
               let forceee = {
                "article":article,
                "quantite":articom.quantite,
@@ -76,7 +78,7 @@ export class PanierPage implements OnInit {
       for(let i=0;i< this.forcer.length;i++){
         if(this.forcer[i].article.id ==article.article.id){
           this.forcer[i].quantiteModif=article.quantiteModif+1;
-          this.total = this.total+this.forcer[i].article.prixU * this.forcer[i].quantiteModif;
+          this.total = this.total+this.forcer[i].article.prixU;
           console.log("total+",this.total);
           console.log("modification",this.forcer);
         }
@@ -97,13 +99,20 @@ export class PanierPage implements OnInit {
 remove(article:any){
   for(let i=0;i< this.forcer.length;i++){
     if(this.forcer[i].article.id ==article.article.id){
-      if ((article.quantiteModif-1) <= 0 ){
-        this.forcer[i].quantiteModif=0;
+      if ((article.quantiteModif-1) <=0 ){
+       this.forcer[i].quantiteModif=1;
+       this.total= this.total;
       }
       else{
         this.forcer[i].quantiteModif=article.quantiteModif-1;
-        this.total = this.forcer[i].article.prixU * this.forcer[i].quantiteModif;
-        console.log("modification",this.forcer);
+        if((this.total-this.forcer[i].article.prixU * this.forcer[i].quantiteModif)<0){
+          this.total= this.total;
+        }
+        else{
+          this.total = this.total-this.forcer[i].article.prixU;
+          console.log("modification",this.total);
+        }
+       
       }
      
     }

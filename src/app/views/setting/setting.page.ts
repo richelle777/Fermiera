@@ -21,11 +21,14 @@ export class SettingPage implements OnInit {
   userbody:any;
   customer:any;
   iduser:any;
+  initalsetting:any;
   ngOnInit() {
     const retrieve=localStorage.getItem('customer');
     // @ts-ignore
     this.user=JSON.parse(retrieve);
     this.userbody=this.user.body;
+    const initials=localStorage.getItem('initial');
+    this.initalsetting=initials;
   }
    save(){
     let userInfo={"id":this.userbody.id,"nom":this.Info.value.nom,"email":this.Info.value.email,"motDePasse":this.Info.value.motDePasse,"telephone":this.Info.value.telephone};

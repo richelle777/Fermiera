@@ -16,6 +16,7 @@ export class HomePage implements OnInit {
   categories : any;
   customer : any;
   initials : String;
+  initalsetting:any;
   resultsOfFilter  = [];
 
   @ViewChild('popover') popover;
@@ -28,10 +29,14 @@ export class HomePage implements OnInit {
           App.exitApp();
         }
       });
+    
+    
     const retrieve = localStorage.getItem("customer");
+    
     this.customer = JSON.parse(retrieve);
     this.initials = this.customer?.body?.email[0]+this.customer?.body?.email[1];
-
+    this.initalsetting=this.initials;
+    localStorage.setItem("initial", this.initalsetting);
     console.log(this.initials);
     
     // this.httpSevice.listArticles().then((data) => {
@@ -41,6 +46,8 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
+    this.initalsetting=this.initials;
+    localStorage.setItem("initial", this.initalsetting);
   }
 
   openPopover(e: Event){
@@ -75,7 +82,8 @@ export class HomePage implements OnInit {
 
   logOut(){
     localStorage.removeItem("registerInfos");
-    localStorage.removeItem("customer");
+    localStorage.removeItem("customer"); 
+    localStorage.removeItem("initial");
     this.router.navigate(['login']);
   }
 }

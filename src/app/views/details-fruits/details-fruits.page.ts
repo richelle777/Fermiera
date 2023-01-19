@@ -19,7 +19,13 @@ export class DetailsFruitsPage implements OnInit {
     console.log(this.article);
   }
   add(){
+    if(this.article.quantite> this.numberProd+1){
       this.numberProd=this.numberProd+1;
+    }
+    else{
+      this.numberProd=this.article.quantite
+    }
+      
   }
   remove(){
     if(this.numberProd<=0){
