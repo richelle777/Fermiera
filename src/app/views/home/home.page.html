@@ -52,7 +52,7 @@
       <ion-img src="assets/img/fresh2.png"></ion-img>
     </div>
     <div>
-      <p class="text-bold pl-14 mt-47"><ion-text color="fermdark">{{'HOME.title-cat1' | translate}}<ion-text color="fermorange">{{'HOME.title-cat2' | translate}}</ion-text></ion-text>
+      <p class="text-bold pl-14 mt-47"><ion-text color="fermdark">{{'HOME.title-cat1' | translate}} <ion-text color="fermorange">{{'HOME.title-cat2' | translate}}</ion-text></ion-text>
       </p>
       <div class="d-flex scroll">
         <ion-card color="fermgreendark" class="content-cat br-25 p-10"  *ngFor="let cat of resultsOfFilter" (click)="toPage(cat)">
