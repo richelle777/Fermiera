@@ -43,8 +43,8 @@
          </div>
          <div class="u--color d-flex ion-align-items-center">
            <ion-button fill="clear" (click)="add(article)"><ion-icon name="add-outline"></ion-icon></ion-button>
-           <span>{{article.quantite}}</span>
-           <ion-button fill="clear" (click)="remove()"><ion-icon name="remove-outline"></ion-icon></ion-button>
+           <span>{{article.quantiteModif}}</span>
+           <ion-button fill="clear" (click)="remove(article)"><ion-icon name="remove-outline"></ion-icon></ion-button>
          </div>
        </div>
      </div>  
@@ -69,18 +69,34 @@
           <ion-skeleton-text [animated]="true" style="width: 80px" class="m-0 mt-5"></ion-skeleton-text>
         </div>
         <div class="u--color d-flex ion-align-items-center">
-          <ion-skeleton-text [animated]="true" style="width: 50px" class="m-0 mt-5"></ion-skeleton-text>
-          <ion-skeleton-text [animated]="true" style="width:50px" class="m-0 mt-5"></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true" style="width: 40%" class="m-0 mt-5"></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true" style="width:60px" class="m-0 mt-5"></ion-skeleton-text>
         </div>
       </div>
     </div>
   </ion-card>
  </div>
-<div class="checkout ion-margin-top">
+<div class="checkout ion-margin-top" *ngIf="!loaded">
+  <ion-card class="ion-padding skeleton-card">
+    <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
+      <ion-skeleton-text [animated]="true" style="width: 100%" class="m-0 mt-5"></ion-skeleton-text>
+    </div>
+    <div class="TVA d-flex ion-justify-content-around ion-margin-bottom ">
+      <ion-skeleton-text [animated]="true" style="width: 100%" class="m-0 mt-5"></ion-skeleton-text>
+    </div>
+    <div class="Total d-flex ion-justify-content-around ion-margin-bottom">
+      <ion-skeleton-text [animated]="true" style="width: 100%" class="m-0 mt-5"></ion-skeleton-text>
+    </div>
+    <div class="container-submit ion-margin-top">
+      <ion-skeleton-text [animated]="true" style="width: 50%" class="m-0 mt-5"></ion-skeleton-text>
+    </div>
+  </ion-card>
+</div>
+<div class="checkout ion-margin-top" *ngIf="loaded">
   <ion-card class="ion-padding">
     <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
       <ion-title>Total HT</ion-title>
-      <ion-text>100FCFA</ion-text>
+      <ion-text>{{total}} FCFA</ion-text>
     </div>
     <div class="TVA d-flex ion-justify-content-around ion-margin-bottom ">
       <ion-title>TVA</ion-title>
@@ -88,7 +104,7 @@
     </div>
     <div class="Total d-flex ion-justify-content-around ion-margin-bottom">
       <ion-title>Total</ion-title>
-      <ion-text>100Fcfa</ion-text>
+      <ion-text>{{total}} Fcfa</ion-text>
     </div>
     <div class="container-submit ion-margin-top">
       <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center" [routerLink]="['../paiement']"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>

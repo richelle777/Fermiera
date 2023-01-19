@@ -19,12 +19,13 @@ export class AddressesPage implements OnInit {
   local;
   user:any;
   constructor(private modalCtrl: ModalController, private httpservice:ApiService, private router:Router, private gestModal:GestionPagesService, private http2:HttpService) {
-    this.user = this.http2.getuserInfos();
+   
+    
     setInterval(()=>{
       this.open = this.gestModal.getModal()
 
       if (this.open == -1 || this.supp == 1){
-        this.httpservice.listLocalisations(this.user.id).then((data)=>{
+        this.httpservice.listLocalisations(this.user.body.id).then((data)=>{
           console.log(data);
           this.commandes = data;
       
@@ -63,14 +64,21 @@ export class AddressesPage implements OnInit {
   }
 
   ionViewDidEnter(){
+    let a = localStorage.getItem("customer");
+    this.user = JSON.parse(a)
+    console.log('user',this.user);
     this.supp = 0;
-
-  this.httpservice.listLocalisations(this.user.id).then((data)=>{
-    console.log(data);
+  
+  
+  this.httpservice.listLocalisations(this.user.body.id).then((data)=>{
+    console.log("data",data);
     this.commandes = data;
 
+
     this.local = this.commandes.filter(function(localisation) {
-      return localisation.deleted == false;})
+      console.log('localisation',localisation);
+      
+      return localisation.deleted == 0;})
     
   })
   }

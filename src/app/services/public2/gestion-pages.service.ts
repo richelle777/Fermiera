@@ -5,6 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class GestionPagesService {
   gest_modal = 0
+
+  ofHistory = 0
+
+  
   
   constructor() { 
   }
@@ -15,5 +19,14 @@ export class GestionPagesService {
   getModal(){
     return this.gest_modal;
   }
+
+   set_OfHistory(value:number){
+    this.ofHistory = value;
+   }
+
+   get_OfHistory(){
+    return this.ofHistory;
+   }
+
 
 }

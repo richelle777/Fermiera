@@ -5,10 +5,10 @@
   </ion-buttons>
 </ion-toolbar>
 <ion-content>
-    <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
+    <ion-accordion-group *ngFor="let cmd of order" [multiple]="true" [value]="['first', 'third']">
       <ion-accordion class="card" value="first">
         <ion-item slot="header">
-          <ion-label>Commande #001</ion-label>
+          <ion-label (click)="goToPage()">Commande {{cmd.id}} </ion-label>
         </ion-item>
         <div slot="content">
           <ion-item [routerLink]="[ '/tab/follow-order' ]" lines="none">

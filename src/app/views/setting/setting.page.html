@@ -14,38 +14,11 @@
   <form  [formGroup]="Info" (ngSubmit)="save()">
   <div class="user-info">
     <p style="text-align: center;font-weight: 700" color="Primary">Please Fill information Fruits</p>
-<<<<<<< HEAD
-    <ion-item color="fermgray">
-      <ion-label  position="stacked">Nom&Prenom</ion-label>
-      <ion-input type="text" placeholder="Stepahnie Siewe"  [(ngModel)]="genus"></ion-input>
-    </ion-item>
-    <ion-item color="fermgray">
-      <ion-label  position="stacked">Email</ion-label>
-      <ion-input type="text" placeholder="Enter email"  [(ngModel)]="name"></ion-input>
-    </ion-item>
-    <ion-item lines="Password" color="fermgray">
-      <ion-label position="stacked" >Password</ion-label>
-      <ion-input type="Password" placeholder="Enter password"  [(ngModel)]="family"></ion-input>
-    </ion-item>
-    <ion-item detail="true" (click)="toPage()" color="fermgray">
-   
-      <ion-label>
-        <h3>Adresses</h3>
-        <p>Detail for adresses</p>
-      </ion-label>
-    </ion-item>
-  </div>
-  <div class="container-submit ion-margin-top d-flex ion-justify-content-center ">
-   
-    <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center w-full"><ion-text color="fermwhite">Enregistrer</ion-text></button>
-  
-   </div>
-=======
       <ion-item >
         <ion-label  position="stacked">Nom&Prenom</ion-label>
         <ion-input type="text" placeholder="{{userbody.nom}}"  formControlName="nom"></ion-input>
       </ion-item>
-      <ion-item  >
+      <ion-item >
         <ion-label  position="stacked">Email</ion-label>
         <ion-input type="text" placeholder="{{userbody.email}}"   formControlName="email"></ion-input>
       </ion-item>
@@ -65,10 +38,9 @@
       </ion-item>
   </div>
   <div class="container-submit ion-margin-top d-flex ion-justify-content-center ">
-    <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center" type="submit" ><ion-text color="fermwhite">Enregistrer</ion-text></button>
+    <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" type="submit" ><ion-text color="fermwhite">Enregistrer</ion-text></button>
   </div>
 </form>
->>>>>>> 73923dea808b74ea6a6ad47edab19690e5213814
 </div>
 
 </ion-content>

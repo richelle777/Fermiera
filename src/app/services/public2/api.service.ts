@@ -31,5 +31,24 @@ export class ApiService {
   }
 
 
+  async followCommande(idcommande){
+    return this.http.get(this.baseUrl.url+"commande/"+idcommande+"/data",this.baseUrl.httOptions).toPromise()
+  }
+
+  async getArticlesOfCommande(idcommande){
+    return this.http.get(this.baseUrl.url+"commandearticle/article/"+idcommande,this.baseUrl.httOptions).toPromise()
+  }
+
+    async getCommandHistory(id_user){
+      console.log('requete',this.baseUrl.url +"customer/"+ id_user +"/commande/history");
+      
+      this.http.get(this.baseUrl.url +"customer/"+ id_user +"/commande/history", this.baseUrl.httOptions).toPromise();
+    }
+
+  async saveLivraisons(data){
+    // return this.http.post(this.baseUrl.url+"livraison/save" )
+  }
+
+
   
 }

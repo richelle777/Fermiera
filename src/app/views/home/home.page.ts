@@ -1,6 +1,10 @@
 import { HttpService } from './../../services/public1/http.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/public2/api.service';
+import { Optional } from '@angular/core';
+import { IonRouterOutlet, Platform } from '@ionic/angular';
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +21,13 @@ export class HomePage implements OnInit {
   @ViewChild('popover') popover;
   isOpen = false;
 
-  constructor(private httpSevice:HttpService , private router:Router) { 
+  constructor(private httpSevice:HttpService , private router:Router, private apiservice:ApiService, private platform: Platform,
+    @Optional() private routerOutlet?: IonRouterOutlet) { 
+      this.platform.backButton.subscribeWithPriority(-1, () => {
+        if (!this.routerOutlet.canGoBack()) {
+          App.exitApp();
+        }
+      });
     const retrieve = localStorage.getItem("customer");
     this.customer = JSON.parse(retrieve);
     this.initials = this.customer?.body?.email[0]+this.customer?.body?.email[1];
@@ -50,6 +60,10 @@ export class HomePage implements OnInit {
     const query = event.target.value.toLowerCase();
     this.resultsOfFilter = this.categories.filter(d => d.nom.toLowerCase().indexOf(query) > -1);
     //console.log(this.resultsOfFilter);
+  }
+
+  retrouver(){
+    
   }
 
   toPage(obj) {

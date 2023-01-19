@@ -16,6 +16,7 @@ export class PanierPage implements OnInit {
       this.commandeArticle = data
       console.log(this.commandeArticle)
     })
+
    }
   numberProduit!:number;
   Encours:any;
@@ -31,6 +32,7 @@ export class PanierPage implements OnInit {
   ngOnInit() {
     this.numberProduit=0;
     this._=0;
+    this.total=0;
   }
   ionViewDidEnter(){
     this.httpSevice.listArticleCommande().then((data) => {
@@ -50,9 +52,11 @@ export class PanierPage implements OnInit {
               let forceee = {
                "article":article,
                "quantite":articom.quantite,
-               //"pixquantite":this.article[index].articleDto.prixU * this.Encours[indexE].quantity,
+               "quantiteModif":articom.quantite,
+               //"prixquantite":this.article[index].articleDto.prixU * this.Encours[indexE].quantity,
               }
-              this.total = this.total + article.prixU * articom.quantite;
+              this.total = this.total + forceee.article.prixU * forceee.quantiteModif;
+              console.log("total",this.total)
               console.log("forceee",forceee)
               suivis.push(forceee)
               console.log("suivi",suivis);  
@@ -68,16 +72,41 @@ export class PanierPage implements OnInit {
     
   }
   add(article:any){
-   let a=article.quantite+1;
-   this.httpSevice.updateArticleFromCommande(a,article.id)
+    if(article.article.quantite > article.quantiteModif+1){
+      for(let i=0;i< this.forcer.length;i++){
+        if(this.forcer[i].article.id ==article.article.id){
+          this.forcer[i].quantiteModif=article.quantiteModif+1;
+          this.total = this.total+this.forcer[i].article.prixU * this.forcer[i].quantiteModif;
+          console.log("total+",this.total);
+          console.log("modification",this.forcer);
+        }
+    }
+    }
+    else{
+      for(let i=0;i< this.forcer.length;i++){
+        if(this.forcer[i].article.id ==article.article.id){
+          this.forcer[i].quantiteModif= article.article.quantite;
+          // this.total =this.forcer[i].article.prixU * this.forcer[i].quantiteModif;
+          console.log("total+",this.total);
+          console.log("modification",this.forcer);
+        }
+    }
+    }
+   //this.httpSevice.updateArticleFromCommande(a,article.article.id)
   }
-remove(){
-  if(this.numberProduit<=0){
-   this.numberProduit=0;
-  }
-  else{
-    this.numberProduit=this.numberProduit-1;
-  }
-    
+remove(article:any){
+  for(let i=0;i< this.forcer.length;i++){
+    if(this.forcer[i].article.id ==article.article.id){
+      if ((article.quantiteModif-1) <= 0 ){
+        this.forcer[i].quantiteModif=0;
+      }
+      else{
+        this.forcer[i].quantiteModif=article.quantiteModif-1;
+        this.total = this.forcer[i].article.prixU * this.forcer[i].quantiteModif;
+        console.log("modification",this.forcer);
+      }
+     
+    }
+}
 }
 }

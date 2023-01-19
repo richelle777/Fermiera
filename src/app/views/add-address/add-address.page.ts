@@ -21,7 +21,8 @@ export class AddAddressPage implements OnInit {
 
 
   constructor(private modalCtrl: ModalController, private httpclient:HttpService, private gest_modal:GestionPagesService, private toastController: ToastController, private http2:HttpService) {
-    this.user = this.http2.getuserInfos()
+    let a = localStorage.getItem("customer");
+    this.user = JSON.parse(a);
   }
 
 
@@ -53,7 +54,7 @@ export class AddAddressPage implements OnInit {
       "region":this.region,
       "longitude":this.longitude,
       "latitude":this.latitude,
-      "added_by":this.user.id
+      "added_by":this.user.body.id
     }
 
     console.log('form', data);

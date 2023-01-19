@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {FormGroup , FormBuilder , Validators , FormControl} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { HttpService } from 'src/app/services/public1/http.service';
+import { ApiService } from 'src/app/services/public2/api.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +27,7 @@ export class RegisterPage implements OnInit {
   isSecondStep = false;
 
 
-  constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService) {
+  constructor(private router:Router , public formbuilder: FormBuilder , private authService:AuthService, private httpclient:HttpService, private apiservice:ApiService) {
 
   }
 
@@ -121,7 +123,43 @@ export class RegisterPage implements OnInit {
         this.badEmail = true
       }
       else{
+        console.log('custumor',this.customer.body);
+        //enregistrer une addresse de livraison
         localStorage.setItem("registerInfos", JSON.stringify(this.customer.body));
+        let localform = {
+          "residence":registerForm.residence,
+          "ville":registerForm.city,
+          "country":registerForm.country,
+          "region":registerForm.region,
+          "longitude":registerForm.longitude,
+          "latitude":registerForm.latitude,
+          "added_by":this.customer.body.id
+        }
+    
+        console.log('form', localform);
+        
+        
+        this.httpclient.saveAddress(JSON.stringify(localform))
+
+         
+        //enregistrer un livraison
+
+        this.apiservice.listLocalisations(this.customer.body.id).then((data)=>{
+          console.log("data",data);
+          let localisations = data;
+
+          let livraisonForm = {
+            "date":null,
+            "localisation":localisations[0]
+          }
+
+          
+
+        })
+
+
+
+
         this.router.navigate(['login'])
       }
     })
