@@ -12,18 +12,24 @@ export class DetailsFruitsPage implements OnInit {
   numberProd:number;
   fruit:any
   ngOnInit() {
-    this.numberProd=0;
+    this.numberProd=1;
     const retrieve=localStorage.getItem('detailF');
     // @ts-ignore
     this.article=JSON.parse(retrieve);
     console.log(this.article);
   }
   add(){
+    if(this.article.quantite> this.numberProd+1){
       this.numberProd=this.numberProd+1;
+    }
+    else{
+      this.numberProd=this.article.quantite
+    }
+      
   }
   remove(){
     if(this.numberProd<=0){
-     this.numberProd=0;
+     this.numberProd=1;
     }
     else{
       this.numberProd=this.numberProd-1;

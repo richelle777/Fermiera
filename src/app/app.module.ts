@@ -12,6 +12,10 @@ import localEn from '@angular/common/locales/en';
 import { LanguageService } from './services/language.service';
 // import {} from '';
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule , HttpClientModule,
@@ -19,7 +23,7 @@ import { LanguageService } from './services/language.service';
       defaultLanguage: 'fr',
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: (HttpLoaderFactory),
         deps: [HttpClient]
       }
     })],
@@ -32,6 +36,4 @@ import { LanguageService } from './services/language.service';
 export class AppModule {}
 
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+

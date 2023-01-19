@@ -9,8 +9,11 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   param = {value: 'world'};
- 
+  lang:any[] = []
+
+
   constructor(translate: TranslateService,private lngs:LanguageService) {
+    // this.lngs.setLanguage('francais');
     translate.setDefaultLang('fr');
     translate.addLangs(['en','fr']);
     translate.use('fr');
@@ -18,8 +21,16 @@ export class AppComponent {
     // const browserLang = translate.getBrowserLang();
     // translate.use(browserLang.match(/en|fr/) ? browserLang : 'fr');
     });
-    console.log(this.lngs.getLanguages())
+    this.lang =this.lngs.getLanguages()
 
   }
   
+  Change(lg:string){
+    this.lngs.setLanguage(lg)
+  }
+  handleChange(ev) {
+    console.log(ev.target.value);
+    
+    this.lngs.setLanguage(ev.target.value);
+  }
 }

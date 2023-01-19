@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
   categories : any;
   customer : any;
   initials : String;
+  initalsetting:any;
   resultsOfFilter  = [];
 
   lngs:any[] = []
@@ -38,20 +39,23 @@ export class HomePage implements OnInit {
           App.exitApp();
         }
       });
+    
+    
     const retrieve = localStorage.getItem("customer");
+    
     this.customer = JSON.parse(retrieve);
- 
+    this.initials = this.customer?.body?.email[0]+this.customer?.body?.email[1];
+    this.initalsetting=this.initials;
+    localStorage.setItem("initial", this.initalsetting);
     console.log(this.initials);
     
     // this.httpSevice.listArticles().then((data) => {
     //   this.articles = data
     //  // console.log(this.articles);
     // })
-    console.log("ooo");
   }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-    
+
+  ngOnInit() {
   }
 
   // updatevalue(key: string, interpolateParams?: Object , translations?:any):void;
@@ -91,7 +95,8 @@ export class HomePage implements OnInit {
 
   logOut(){
     localStorage.removeItem("registerInfos");
-    localStorage.removeItem("customer");
+    localStorage.removeItem("customer"); 
+    localStorage.removeItem("initial");
     this.router.navigate(['login']);
   }
 }

@@ -10,12 +10,13 @@ export class LanguageService {
 
   getLanguages(){
     return [
-      {value:'fr',text:'francais'},
-      {value:'en',text:'anglais'},
+      {value:'fr',text:'Francais'},
+      {value:'en',text:'Anglais'},
     ]
   }
 
   setLanguage(lang){
-    this.translate.use(lang)
+    this.translate.use(lang);
+    // console.log('language changed',lang)
   }
 }
