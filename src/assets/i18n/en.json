@@ -12,5 +12,8 @@
        "title-cat1": "List ofs",
         "title-cat2": "categories",
         "title-moto": "Fast and efficient free delivery"
+    },
+    "DETAIL":{
+        "vendeur":"seller"
     }
 }

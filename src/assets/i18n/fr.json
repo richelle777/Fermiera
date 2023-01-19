@@ -12,5 +12,8 @@
         "title-cat1": "Liste des",
         "title-cat2": "categories",
         "title-moto": "Livraison gratuite rapide et efficace"
+    },
+    "DETAIL":{
+        "vendeur":"vendeur"
     }
 }
