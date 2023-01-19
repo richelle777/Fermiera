@@ -1,13 +1,15 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="">
+    
     <div class="d-flex px-18">
       <div>
         <ion-buttons>
-          <ion-menu-button color="fermdark"></ion-menu-button>
+          <ion-menu-button color="fermprimary"></ion-menu-button>
         </ion-buttons>
       </div>
       <div class="m-auto">
-        <ion-text color="fermdark" class="text-bold">Accueil</ion-text>
+        <ion-text color="fermdark" class="text-bold">{{'SIDEMENU.accueil'| translate}}</ion-text>
+        
       </div>
       <div class="mt-10" (click)="openPopover($event)">
         <ion-text color="fermgreendark" class="initial uppercase">{{initials}}</ion-text>
@@ -40,6 +42,11 @@
         <ion-icon name="search-outline" class="icon"></ion-icon>
       </ion-input>
     </div> -->
+    <ion-list>
+      <ion-item *ngFor="let item of lngs">
+        {{item.text}}
+      </ion-item>
+    </ion-list>
     <div class="section1-fruit mt-25">
       <ion-label class="section1-fruit-text text-bold" color="fermdark">100% Bio, produit par notre terre</ion-label>
       <ion-img src="assets/img/fresh2.png"></ion-img>

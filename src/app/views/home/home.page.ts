@@ -1,3 +1,4 @@
+import { LanguageService } from './../../services/language.service';
 import { HttpService } from './../../services/public1/http.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -5,6 +6,9 @@ import { ApiService } from 'src/app/services/public2/api.service';
 import { Optional } from '@angular/core';
 import { IonRouterOutlet, Platform } from '@ionic/angular';
 import { App } from '@capacitor/app';
+import { ChangeDetectorRef, OnDestroy, PipeTransform } from '@angular/core';
+import { Subscription } from 'rxjs';
+import * as i0 from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -13,15 +17,21 @@ import { App } from '@capacitor/app';
 })
 export class HomePage implements OnInit {
   // articles : any;
+  private _ref;
+  onTranslationChange: Subscription | undefined;
+  onLangChange: Subscription | undefined;
+  onDefaultLangChange: Subscription | undefined;
   categories : any;
   customer : any;
   initials : String;
   resultsOfFilter  = [];
 
+  lngs:any[] = []
+
   @ViewChild('popover') popover;
   isOpen = false;
 
-  constructor(private httpSevice:HttpService , private router:Router, private apiservice:ApiService, private platform: Platform,
+  constructor(private lng:LanguageService, _ref:ChangeDetectorRef, private httpSevice:HttpService , private router:Router, private apiservice:ApiService, private platform: Platform,
     @Optional() private routerOutlet?: IonRouterOutlet) { 
       this.platform.backButton.subscribeWithPriority(-1, () => {
         if (!this.routerOutlet.canGoBack()) {
@@ -30,18 +40,24 @@ export class HomePage implements OnInit {
       });
     const retrieve = localStorage.getItem("customer");
     this.customer = JSON.parse(retrieve);
-    this.initials = this.customer?.body?.email[0]+this.customer?.body?.email[1];
-
+ 
     console.log(this.initials);
     
     // this.httpSevice.listArticles().then((data) => {
     //   this.articles = data
     //  // console.log(this.articles);
     // })
+    console.log("ooo");
+  }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+    
   }
 
-  ngOnInit() {
-  }
+  // updatevalue(key: string, interpolateParams?: Object , translations?:any):void;
+  // transform(query: any, ...args: any[]): any;
+
+
 
   openPopover(e: Event){
     this.popover.event = e;
