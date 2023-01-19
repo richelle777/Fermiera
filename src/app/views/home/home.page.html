@@ -1,13 +1,15 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="">
+    
     <div class="d-flex px-18">
       <div>
         <ion-buttons>
-          <ion-menu-button color="fermdark"></ion-menu-button>
+          <ion-menu-button color="fermprimary"></ion-menu-button>
         </ion-buttons>
       </div>
       <div class="m-auto">
-        <ion-text color="fermdark" class="text-bold">Accueil</ion-text>
+        <ion-text color="fermdark" class="text-bold">{{'SIDEMENU.accueil'| translate}}</ion-text>
+        
       </div>
       <div class="mt-10" (click)="openPopover($event)">
         <ion-text color="fermgreendark" class="initial uppercase">{{initials}}</ion-text>
@@ -17,13 +19,13 @@
           <ion-content class="ion-padding">
             <!-- <h4><ion-icon name="settings-outline" color="fermtertiary" class="icon-md"></ion-icon> <ion-text class="ml-5">Account Settings</ion-text></h4>
              -->
-            <div class="d-flex"><div class="m-0"><ion-icon name="log-out-outline" color="fermtertiary" class="icon-md"></ion-icon></div><div (click)="logOut()"><ion-text class="ml-5 fs-21">LogOut</ion-text></div></div>
+            <div class="d-flex"><div class="m-0"><ion-icon name="log-out-outline" color="fermtertiary" class="icon-md"></ion-icon></div><div (click)="logOut()"><ion-text class="ml-5 fs-21">{{'HOME.logout' | translate}}</ion-text></div></div>
           </ion-content>
         </ng-template>
       </ion-popover>
     </div>
     <div class="mt-20 px-25">
-      <ion-input class="input text-bold" placeholder="Search" color="fermdark" clearInput (ionChange)="handleChange($event)" debounce="1000">
+      <ion-input class="input text-bold" :placeholder="{{'HOME.recherche' | translate}}" color="fermdark" clearInput (ionChange)="handleChange($event)" debounce="1000">
         <ion-icon name="search-outline" class="icon"></ion-icon>
       </ion-input>
     </div>
@@ -40,12 +42,17 @@
         <ion-icon name="search-outline" class="icon"></ion-icon>
       </ion-input>
     </div> -->
+    <!-- <ion-list>
+      <ion-item *ngFor="let item of lngs">
+        {{item.text}}
+      </ion-item>
+    </ion-list> -->
     <div class="section1-fruit mt-25">
-      <ion-label class="section1-fruit-text text-bold" color="fermdark">100% Bio, produit par notre terre</ion-label>
+      <ion-label class="section1-fruit-text text-bold" color="fermdark">{{'HOME.text-card' | translate}}</ion-label>
       <ion-img src="assets/img/fresh2.png"></ion-img>
     </div>
     <div>
-      <p class="text-bold pl-14 mt-47"><ion-text color="fermdark">Liste des <ion-text color="fermorange">categories</ion-text></ion-text>
+      <p class="text-bold pl-14 mt-47"><ion-text color="fermdark">{{'HOME.title-cat1' | translate}}<ion-text color="fermorange">{{'HOME.title-cat2' | translate}}</ion-text></ion-text>
       </p>
       <div class="d-flex scroll">
         <ion-card color="fermgreendark" class="content-cat br-25 p-10"  *ngFor="let cat of resultsOfFilter" (click)="toPage(cat)">
@@ -83,7 +90,7 @@
           <div class="m-auto p-10">
             <span class="livraison-title">
               <ion-text color="light">
-                Livraison gratuite rapide et efficace
+                {{'HOME.title-moto' | translate}}
               </ion-text>
             </span>
           </div>
