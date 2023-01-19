@@ -118,4 +118,8 @@ remove(article:any){
     }
 }
 }
+delete(article){
+  this.httpSevice.deleteArticleFromCommande(article.article.id);
+  this.router.navigate(['/tab/panier']);
+}
 }
