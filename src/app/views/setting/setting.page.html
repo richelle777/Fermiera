@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-content">
+<ion-content class="bg-content" color="fermgray">
 <div class=container>
   <div class="d-flex ion-justify-content-center ion-margin-top">
     <div class="image-user d-flex ion-justify-content-center ion-align-items-center">
@@ -14,30 +14,30 @@
   <form  [formGroup]="Info" (ngSubmit)="save()">
   <div class="user-info">
     <p style="text-align: center;font-weight: 700" color="Primary">Please Fill information Fruits</p>
-      <ion-item >
+      <ion-item  color="fermgray">
         <ion-label  position="stacked">Nom&Prenom</ion-label>
-        <ion-input type="text" placeholder="{{userbody.nom}}"  formControlName="nom"></ion-input>
+        <ion-input type="text" placeholder="{{userbody.nom}}" :value="{{userbody.nom}}"  formControlName="nom"></ion-input>
       </ion-item>
-      <ion-item >
+      <ion-item  color="fermgray">
         <ion-label  position="stacked">Email</ion-label>
         <ion-input type="text" placeholder="{{userbody.email}}"   formControlName="email"></ion-input>
       </ion-item>
-      <ion-item lines="Password">
+      <ion-item lines="Password"  color="fermgray">
         <ion-label position="stacked" >Password</ion-label>
         <ion-input type="Password" placeholder="{{userbody.motDePasse}}"   formControlName="motDePasse"></ion-input>
       </ion-item>
-      <ion-item lines="Password">
+      <ion-item lines="Password"  color="fermgray">
         <ion-label position="stacked" >telephone</ion-label>
         <ion-input type="number" placeholder="{{userbody.telephone}}"   formControlName="telephone"></ion-input>
       </ion-item>
-      <ion-item detail="true" (click)="toPage()">
+      <ion-item detail="true" (click)="toPage()"  color="fermgray">
         <ion-label>
           <h3>Adresses</h3>
           <p>Detail for adresses</p>
         </ion-label>
       </ion-item>
   </div>
-  <div class="container-submit ion-margin-top d-flex ion-justify-content-center ">
+  <div class="container-submit ion-margin-top d-flex ion-justify-content-center mb-10 mx-10">
     <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" type="submit" ><ion-text color="fermwhite">Enregistrer</ion-text></button>
   </div>
 </form>
