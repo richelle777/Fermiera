@@ -1,8 +1,40 @@
 <ion-header class="ion-no-border">
+  <ion-toolbar class="">
+    
+    <div class="d-flex px-18">
+      <div>
+        <ion-buttons>
+          <ion-menu-button color="fermprimary"></ion-menu-button>
+        </ion-buttons>
+      </div>
+      <div class="m-auto">
+        <ion-text color="fermdark" class="text-bold">{{'SETTING.titre' | translate }}</ion-text>
+        
+      </div>
+      <div class="mt-10" (click)="openPopover($event)">
+        <ion-text color="fermgreendark" class="initiale uppercase">{{initalsetting}}</ion-text>
+      </div>
+      <ion-popover #popover [isOpen]="isOpen" (didDidmiss)="isOpen = false">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <!-- <h4><ion-icon name="settings-outline" color="fermtertiary" class="icon-md"></ion-icon> <ion-text class="ml-5">Account Settings</ion-text></h4>
+             -->
+            <div class="d-flex"><div class="m-0"><ion-icon name="log-out-outline" color="fermtertiary" class="icon-md"></ion-icon></div><div (click)="logOut()"><ion-text class="ml-5 fs-21">{{'HOME.logout' | translate}}</ion-text></div></div>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<!-- 
+
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title class="text-center">{{'SETTING.titre' | translate }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content class="bg-content" color="fermgray">
 <div class=container>
@@ -14,15 +46,15 @@
   <form  [formGroup]="Info" (ngSubmit)="save()">
   <div class="user-info">
     <p style="text-align: center;font-weight: 700" color="Primary">{{'SETTING.c1' | translate }}</p>
-      <ion-item >
+      <ion-item  color="fermgray">
         <ion-label  position="stacked">{{'SETTING.c2' | translate }}</ion-label>
         <ion-input type="text" placeholder="{{userbody.nom}}"  formControlName="nom"></ion-input>
       </ion-item>
-      <ion-item >
+      <ion-item  color="fermgray">
         <ion-label  position="stacked">{{'SETTING.c3' | translate }}</ion-label>
         <ion-input type="text" placeholder="{{userbody.email}}"   formControlName="email"></ion-input>
       </ion-item>
-      <ion-item lines="Password">
+      <ion-item lines="Password"  color="fermgray">
         <ion-label position="stacked" >{{'SETTING.c4' | translate }}</ion-label>
         <ion-input type="Password" placeholder="{{userbody.motDePasse}}"   formControlName="motDePasse"></ion-input>
       </ion-item>

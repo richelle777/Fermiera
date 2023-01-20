@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -12,10 +12,11 @@ import * as i0 from '@angular/core';
 })
 export class SettingPage implements OnInit {
 
+  
 
 
-  constructor(private authService: AuthService, private router: Router) { }
-  // user:any;
+  constructor(private authService:AuthService,private router:Router) { }
+ // user:any;
   //userbody:any;
   customer: any;
   iduser: any;
@@ -23,6 +24,8 @@ export class SettingPage implements OnInit {
   retrieve = localStorage.getItem('customer');
   user = JSON.parse(this.retrieve);
   userbody = this.user.body;
+  @ViewChild('popover') popover;
+  isOpen = false;
 
   Info = new FormGroup({
     nom: new FormControl(this.userbody.nom),
@@ -30,13 +33,6 @@ export class SettingPage implements OnInit {
     motDePasse: new FormControl(this.userbody.motDePasse),
     telephone: new FormControl(this.userbody.telephone),
   });
-
-  constructor(private authService:AuthService,private router:Router) { }
-  user:any;
-  userbody:any;
-  customer:any;
-  iduser:any;
-  initalsetting:any;
   onTranslationChange: Subscription | undefined;
   onLangChange: Subscription | undefined;
   onDefaultLangChange: Subscription | undefined;
@@ -65,5 +61,9 @@ export class SettingPage implements OnInit {
   }
   toPage() {
     this.router.navigate(['/addresses'])
+  }
+  openPopover(e: Event){
+    this.popover.event = e;
+    this.isOpen = true;
   }
 }
