@@ -1,0 +1,103 @@
+ion-header {
+  border-color: var(--ion-color-fermgray);
+}
+
+ion-content, ion-toolbar {
+  --background:var(--ion-color-fermgray);
+}
+
+ion-toolbar {
+  color: var(--ion-color-fermfourth);
+  font-family: rubikMeduim;
+  text-transform: capitalize;
+  font-size: 20pt;
+}
+
+ion-toolbar > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ion-toolbar > div > ion-icon {
+  margin-left: 4vw;
+  margin-right: -4vw;
+}
+
+ion-fab {
+  color: var(--ion-color-fermorange);
+}
+
+ion-card {
+  --background:white;
+}
+
+.bag {
+  color: var(--ion-color-fermfourth-shade);
+  text-align: end;
+  font-size: 1.5rem;
+  margin-top: -2vh;
+}
+
+.bag > ion-icon:first-child {
+  color: var(--ion-color-redtrash);
+  margin-right: 1.5vw;
+}
+
+.bag > ion-icon:last-child {
+  color: var(--ion-color-fermorange);
+}
+
+ion-toolbar ~ div {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+ion-item {
+  --background:white;
+  color: var(--ion-color-fermfourth-shade);
+  border: none;
+}
+
+ion-card-title {
+  font-family: rubikRegular;
+  text-transform: capitalize;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: .5rem;
+  margin-left: -1.5rem;
+  color: var(--ion-color-fermfourth-shade);
+}
+
+.blocked {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-top: 2vh;
+}
+
+ion-card-content > div > h4:first-child {
+  margin-left: 2.3rem;
+  margin-top: -2vh;
+}
+
+ion-grid {
+  margin-left: 1.7rem;
+}
+
+h4 {
+  color: var(--ion-color-fermgreendark-tint);
+  text-transform: capitalize;
+  font-size: 4vw;
+  font-family: Poppins;
+}
+
+ion-avatar {
+  font-size: 2rem;
+  margin-right: .5rem;
+}
+/*# sourceMappingURL=addresses.page.css.map */

@@ -66,9 +66,9 @@ export class PanierPage implements OnInit {
         }
       }
       this.forcer=suivis;
-      if(this.forcer.length==0){
-        this.loaded=false;
-        this.present=true;
+      if(this.Encours.length==0){
+        // this.loaded=false;
+        // this.present=true;
         console.log("vide")
       }
       
@@ -126,6 +126,6 @@ remove(article:any){
 delete(article){
   this.httpSevice.deleteArticleFromCommande(article.article.id);
  
-  this.router.navigate(['/tab/panier'])
+ // this.router.navigate(['/tab/panier'])
 }
 }

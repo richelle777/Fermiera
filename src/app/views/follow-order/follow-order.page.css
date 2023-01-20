@@ -1,0 +1,133 @@
+ion-title {
+  font-family: rubik;
+  font-size: 16px;
+  opacity: 100%;
+  padding-left: 65px;
+  font-weight: bold;
+}
+
+ion-toolbar, ion-content {
+  --background: var(--ion-color-fermgray);
+}
+
+ion-searchbar {
+  padding-right: 70px;
+  margin-top: 8px;
+  --border-radius: 10px;
+  --background: var(--ion-color-fermgreenlight-tint);
+}
+
+ion-input {
+  --background: var(--ion-color-fermgreenlight-tint);
+  width: 80vw;
+}
+
+.input {
+  padding: 10px !important;
+  padding: 100px;
+  background: white;
+  border-radius: 8px;
+}
+
+.input:focus-within {
+  border: 1px solid;
+  border-color: var(--ion-color-fermsecondary);
+}
+
+.icon {
+  font-size: 27px;
+  padding-right: 10px;
+}
+
+ion-fab-button {
+  --background:var(--ion-color-fermiera-dark-green);
+  --background-activated: var(--ion-color-fermiera-dark-green);
+  --border-radius: 10px;
+  --color: white;
+}
+
+.item ion-item {
+  --background: var(--ion-color-fermgray);
+}
+
+.item ion-icon {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.item h5 {
+  font-size: 14px;
+  color: var(--ion-color-fermiera-dark-green);
+}
+
+ion-content {
+  --background: var(--ion-color-fermgray);
+  font-family: rubik;
+}
+
+ion-card ion-label {
+  font-family: rubik;
+  font-size: 15px;
+  font-weight: 550;
+  color: var(--ion-color-fermiera-dark-green);
+  opacity: 100%;
+  -webkit-transform: translateX(20px) translateY(3px);
+          transform: translateX(20px) translateY(3px);
+}
+
+.search {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.paid {
+  margin-top: 25px;
+  font-family: rubik;
+}
+
+.paid h4 {
+  font-size: 15px;
+}
+
+.paid h5 {
+  font-size: 14px;
+  color: var(--ion-color-ferm-greenish);
+}
+
+.paid ion-icon {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.paid b {
+  margin-right: 5px;
+  color: var(--ion-color-fermiera-dark-green);
+}
+
+ion-label {
+  font-family: rubik;
+  font-size: 15px;
+  font-weight: 550;
+  --color:var(--ion-color-fermiera-dark-green);
+  opacity: 100%;
+  -webkit-transform: translateX(20px) translateY(3px);
+          transform: translateX(20px) translateY(3px);
+}
+
+ion-badge {
+  --padding-top: 10px;
+  --color: var(--ion-color-fermprimary);
+  --background: white;
+}
+
+h2 {
+  color: var(--ion-color-fermiera-dark-green);
+  font-size: 16px;
+  -webkit-transform: translateX(21px);
+          transform: translateX(21px);
+}
+
+ion-content > div:last-of-type {
+  color: var(--ion-color-fermiera-dark-green);
+}
+/*# sourceMappingURL=follow-order.page.css.map */

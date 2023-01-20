@@ -1,0 +1,99 @@
+ion-card {
+  margin-inline: 8px;
+}
+
+.title-welcome {
+  font-size: 20px;
+}
+
+.title-welcome span {
+  line-height: 40px;
+}
+
+.input {
+  padding: 10px !important;
+  background-color: var(--ion-color-fermgreenlight);
+  font-size: 15px;
+  border-radius: 19px;
+  height: 42px;
+}
+
+.icon {
+  font-size: 22px;
+  padding-right: 10px;
+}
+
+.input:focus-within {
+  border: 1px solid;
+  border-color: var(--ion-color-fermsecondary);
+}
+
+.section1-fruit-text {
+  position: absolute;
+  text-align: center;
+  width: 125px;
+  margin-top: 40px;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.container-cat {
+  max-width: 500px;
+  overflow: scroll;
+}
+
+.content-cat {
+  min-width: 165px !important;
+  max-width: 165px;
+  height: 200px;
+}
+
+.img-cat {
+  width: 120px;
+  height: 120px;
+}
+
+.add-icon {
+  float: right;
+  font-size: 30px;
+}
+
+p {
+  margin-bottom: 0px;
+}
+
+.bloc-livraison {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(252, 158, 8, 0.19)), to(#ffa700));
+  background: linear-gradient(90deg, rgba(252, 158, 8, 0.19), #ffa700);
+  height: 170px;
+}
+
+.livraison-title {
+  font-size: 20px;
+  color: var(--ion-color-light);
+}
+
+.img-livraison {
+  width: 100px;
+  height: 100px;
+}
+
+.initial {
+  background-color: var(--ion-color-fermgreenlight);
+  width: 50px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.icon-md {
+  font-size: 24px;
+}
+
+.fs-21 {
+  font-size: 21px;
+}
+
+ion-toolbar, ion-content {
+  --background: var(--ion-color-fermgray);
+}
+/*# sourceMappingURL=home.page.css.map */

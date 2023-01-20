@@ -1,0 +1,61 @@
+ion-title {
+  font-family: rubik;
+  font-size: 16px;
+  opacity: 100%;
+  padding-left: 28px;
+  font-weight: bold;
+}
+
+ion-toolbar, ion-content {
+  --background: var(--ion-color-fermgray);
+}
+
+ion-badge {
+  --padding-top: 10px;
+  --color: var(--ion-color-fermprimary);
+  --background: white;
+}
+
+.card {
+  border-radius: 8px 8px 8px 8px;
+  overflow: hidden;
+  opacity: 100%;
+  -webkit-transform: translateX(30px) translateY(16px);
+          transform: translateX(30px) translateY(16px);
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.card h4 {
+  font-size: 14px;
+}
+
+.card ion-label {
+  font-family: rubik;
+  font-size: 15px;
+  font-weight: 550;
+  --color:var(--ion-color-fermiera-green);
+  opacity: 100%;
+  -webkit-transform: translateX(20px) translateY(3px);
+          transform: translateX(20px) translateY(3px);
+}
+
+.paid {
+  margin-top: 25px;
+}
+
+.paid h5 {
+  font-size: 14px;
+  color: var(--ion-color-ferm-greenish);
+}
+
+.paid ion-icon {
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+.paid b {
+  margin-right: 5px;
+  color: var(--ion-color-fermiera-dark-green);
+}
+/*# sourceMappingURL=all-orders.page.css.map */

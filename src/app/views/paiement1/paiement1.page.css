@@ -1,0 +1,62 @@
+#numb {
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.form1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: left;
+}
+
+ion-item {
+  border-radius: 300px;
+  margin-right: 2px;
+  background-color: #309f7a;
+  color: aquamarine;
+}
+
+.valid {
+  text-align: left;
+  margin-right: 2px;
+}
+
+.enre {
+  width: 10%;
+  border-radius: 15px;
+  padding: 5px;
+}
+
+h1 p {
+  color: #2d8c2d;
+}
+
+h1 {
+  color: #2d8c2d;
+}
+
+ion-button {
+  background-color: forestgreen;
+}
+
+.m-auto {
+  color: black;
+}
+
+ion-input {
+  color: #309f7a;
+}
+
+ion-checkbox {
+  color: #309f7a;
+}
+
+ion-back-button {
+  color: black;
+}
+/*# sourceMappingURL=paiement1.page.css.map */

@@ -15,7 +15,7 @@ const httpOptions = {
     )
   }
 export class BaseUrl {
-   url = "http://localhost:8282/api/";
+  url = "http://localhost:8282/api/";
   //url = "https://smartfarm-production-c8d2.up.railway.app/api/";
   httOptions = httpOptions;
   httOptionsPost = httpOptions2;

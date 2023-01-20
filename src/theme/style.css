@@ -1,0 +1,206 @@
+@font-face {
+  font-family: rubikRegular;
+  src: url("../assets/fonts/Rubik-Regular.ttf");
+}
+
+@font-face {
+  font-family: rubikMedium;
+  src: url("../assets/fonts/Rubik-Medium.ttf");
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.p-25 {
+  padding: 25px;
+}
+
+.px-25 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.justify-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.justify-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.text-white {
+  color: var(--ion-color-rmwhite);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.block {
+  display: block;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-md {
+  font-size: 24px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.l-30 {
+  line-height: 30px;
+}
+
+.header-ios ion-toolbar:last-of-type {
+  --border-width: 0 0 0px!important;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ion-range-volume {
+  padding-top: 0px;
+}
+
+.p-5 {
+  padding: 5px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.br-10 {
+  border-radius: 10px;
+}
+
+.br-25 {
+  border-radius: 25px;
+}
+
+.br-15 {
+  border-radius: 15px;
+}
+
+.scroll {
+  overflow: scroll;
+}
+
+.pl-14 {
+  padding-left: 14px;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+
+.mt-47 {
+  margin-top: 47px;
+}
+
+.mt--20 {
+  margin-top: -20px;
+}
+
+.px-18 {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.rounded {
+  border-radius: 30px;
+}
+
+.flex-wrap {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.disabled {
+  background-color: var(--ion-color-fermgreenlight) !important;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+.d-block {
+  display: block;
+}
+
+.mx-10 {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/*# sourceMappingURL=style.css.map */
