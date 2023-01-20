@@ -53,10 +53,11 @@ export class PanierPage implements OnInit {
       console.log(this.listcommande);
       for(let commande of this.listcommande){
         if(this.userbody.id== commande.clientDto.id){
-          console.log(this.userbody,commande.clientDto.id);
-          this.commandeEncours=this.listcommande.filter((item)=> item.statutCommande == "En cours");
-          this.recup=this.commandeEncours[0].id;
+          if(commande.statutCommande =="En cours"){
+            console.log("LE Userbody",commande.clientDto.id);
+          this.recup=commande.id;
           console.log("commandeEncours",this.recup);
+          }
         }
       }
     });
@@ -150,5 +151,8 @@ delete(article){
   this.httpSevice.deleteArticleFromCommande(article.article.id);
  
  // this.router.navigate(['/tab/panier'])
+}
+toPage(){
+  this.router.navigate(['/paiement'])
 }
 }

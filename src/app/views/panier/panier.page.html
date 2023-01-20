@@ -140,7 +140,7 @@
       <ion-text>{{total}} Fcfa</ion-text>
     </div>
     <div class="container-submit ion-margin-top d-flex ion-justify-content-center">
-      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" [routerLink]="['../paiement']" *ngIf="!present"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
+      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" (click)="toPage()" *ngIf="!present"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
     </div>
   </ion-card>
 </div>
