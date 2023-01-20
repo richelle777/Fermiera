@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup , FormBuilder , Validators , FormControl} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { LanguageService } from './../../services/language.service';
@@ -10,13 +10,25 @@ import * as i0 from '@angular/core';
   templateUrl: './setting.page.html',
   styleUrls: ['./setting.page.scss'],
 })
-export class SettingPage implements OnInit {   
+export class SettingPage implements OnInit {
+
+
+
+  constructor(private authService: AuthService, private router: Router) { }
+  // user:any;
+  //userbody:any;
+  customer: any;
+  iduser: any;
+  initalsetting: any;
+  retrieve = localStorage.getItem('customer');
+  user = JSON.parse(this.retrieve);
+  userbody = this.user.body;
 
   Info = new FormGroup({
-    nom: new FormControl(),
-    email: new FormControl(),
-    motDePasse: new FormControl(),
-    telephone: new FormControl(),
+    nom: new FormControl(this.userbody.nom),
+    email: new FormControl(this.userbody.email),
+    motDePasse: new FormControl(this.userbody.motDePasse),
+    telephone: new FormControl(this.userbody.telephone),
   });
 
   constructor(private authService:AuthService,private router:Router) { }
@@ -30,23 +42,28 @@ export class SettingPage implements OnInit {
   onDefaultLangChange: Subscription | undefined;
 
   ngOnInit() {
-    const retrieve=localStorage.getItem('customer');
+    const retrieve = localStorage.getItem('customer');
     // @ts-ignore
-    this.user=JSON.parse(retrieve);
-    this.userbody=this.user.body;
-    const initials=localStorage.getItem('initial');
-    this.initalsetting=initials;
+    this.user = JSON.parse(retrieve);
+    this.userbody = this.user.body;
+    const initials = localStorage.getItem('initial');
+    this.initalsetting = initials;
   }
-   save(){
-    let userInfo={"id":this.userbody.id,"nom":this.Info.value.nom,"email":this.Info.value.email,"motDePasse":this.Info.value.motDePasse,"telephone":this.Info.value.telephone};
+  save() {
+    let userInfo = { "id": this.userbody.id, "nom": this.Info.value.nom, "email": this.Info.value.email, "motDePasse": this.Info.value.motDePasse, "telephone": this.Info.value.telephone };
     console.log(userInfo);
-     this.authService.updateCustommer(userInfo).subscribe((data)=>{
-      this.customer=data;
+    this.authService.updateCustommer(userInfo).subscribe((data) => {
+      this.customer = data;
+      let initials = userInfo?.email[0]+userInfo?.email[1];
+      console.log(initials)
+      localStorage.removeItem("initial");
+      localStorage.removeItem("customer");
+      localStorage.setItem("initial",initials);
       localStorage.setItem("customer", JSON.stringify(this.customer));
       this.router.navigate(['tab/home'])
-     })
+    })
   }
-  toPage(){
+  toPage() {
     this.router.navigate(['/addresses'])
   }
 }

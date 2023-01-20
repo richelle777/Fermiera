@@ -138,10 +138,6 @@ const routes: Routes = [
     loadChildren: () => import('./tab/tab.module').then( m => m.TabPageModule)
   },
   {
-    path: 'basket',
-    loadChildren: () => import('./views/basket/basket.module').then( m => m.BasketPageModule)
-  },
-  {
     path: 'panier',
     loadChildren: () => import('./views/panier/panier.module').then( m => m.PanierPageModule)
   },

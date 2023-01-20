@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Console } from 'console';
 import { Article } from 'src/app/class/article';
 import { Panier } from 'src/app/class/panier';
+import { interval } from 'rxjs';
+
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.page.html',
@@ -45,27 +47,30 @@ export class PanierPage implements OnInit {
 
     this.httpSevice.listArticles().then((data:Article[])=>{
       this.article=data;
-      console.log(this.article)
       let suivis = new Array<any>;
       for (let article of this.article){
-         for (let articom of this.Encours){
-            if (article.id == articom.id.idArticle){
-              this.present=true;
-              let forceee = {
-               "article":article,
-               "quantite":articom.quantite,
-               "quantiteModif":articom.quantite,
-               //"prixquantite":this.article[index].articleDto.prixU * this.Encours[indexE].quantity,
-              }
-              this.total = this.total + forceee.article.prixU * forceee.quantiteModif;
-              console.log("total",this.total)
-              console.log("forceee",forceee)
-              suivis.push(forceee)
-              console.log("suivi",suivis);  
-            } 
-         }
+        for (let articom of this.Encours){
+          if (article.id == articom.id.idArticle){
+            let forceee = {
+              "article":article,
+              "quantite":articom.quantite,
+              "quantiteModif":articom.quantite,
+              //"prixquantite":this.article[index].articleDto.prixU * this.Encours[indexE].quantity,
+            }
+            this.total = this.total + forceee.article.prixU * forceee.quantiteModif;
+            console.log("total",this.total)
+            console.log("forceee",forceee)
+            suivis.push(forceee)
+            console.log("suivi",suivis);  
+          } 
+        }
       }
-      this.forcer=suivis
+      this.forcer=suivis;
+      if(this.forcer.length==0){
+        this.loaded=false;
+        this.present=true;
+        console.log("vide")
+      }
       
     })
     setTimeout(() => {
@@ -120,6 +125,7 @@ remove(article:any){
 }
 delete(article){
   this.httpSevice.deleteArticleFromCommande(article.article.id);
-  this.router.navigate(['/tab/panier']);
+ 
+  this.router.navigate(['/tab/panier'])
 }
 }

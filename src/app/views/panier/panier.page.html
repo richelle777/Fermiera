@@ -1,5 +1,5 @@
 <ion-header class="ion-no-border">
-  <ion-toolbar class="px-18">
+  <ion-toolbar class="px-18" color="fermgray">
     <div class="d-flex">
       <div>
         <ion-buttons slot="start">
@@ -19,21 +19,21 @@
 </ion-header>
 
 <ion-content class="bg-content">
-  <div *ngIf="!present">
+  <div *ngIf="present">
     <div class="image-panier" >
       <ion-img src="assets/img/panier04.png"></ion-img>
     </div>
     <p class="text-center"><ion-text color="fermorange">Aucun article dans le panier</ion-text></p>
   </div>
- <div *ngIf="loaded && present">
-   <ion-card class="content d-flex ion-margin-bottom " *ngFor="let article of forcer" mode="md" >
+ <div *ngIf="loaded">
+   <ion-card class="content d-flex ion-margin-bottom display-sm" *ngFor="let article of forcer" mode="md" >
      <ion-thumbnail class="image">
        <ion-img class="rounded" src="assets/img/big_fraise.jpg"></ion-img>
      </ion-thumbnail>
      <div class="info-content">
        <div class="info-content-titleO d-flex ion-justify-content-between ">
          <ion-title style="font-size:14px">{{article.article.nom}}</ion-title>
-         <button class="custom-button " (click)="delete(article)"><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
+         <button class="custom-button " [routerLink]="['/tab/panier']" (click)="delete(article)"><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
        </div>
        <div class="info-content-tile1 d-flex ion-justify-content-between">
          <!-- <div class="name-categorie d-flex ion-align-items-center">
@@ -44,9 +44,9 @@
          </div>
        </div>
        <div class="info-conent-title2 d-flex ion-align-items-center  ion-justify-content-between">
-         <div class="price">
-           <ion-text class="ion-text-lg-start">{{article.article.prixU}} Fcfa</ion-text>
-         </div>
+          <div class="price">
+            <ion-text>{{article.article.prixU}} Fcfa</ion-text>
+          </div>
          <div class="u--color d-flex ion-align-items-center">
            <ion-button fill="clear" (click)="add(article)"><ion-icon name="add-outline"></ion-icon></ion-button>
            <span>{{article.quantiteModif}}</span>
@@ -56,7 +56,34 @@
      </div>  
    </ion-card>
   </div>
-  <div *ngIf="!loaded && !present">
+  <div class="display-md mt-25" >
+    <ion-grid class="d-flex flex-wrap">
+      <ion-col size=6 sizeSm=4 sizeMd=3 sizeLg=3 sizeXl=2 *ngFor="let article of forcer">
+        <ion-card class="m-0 br-15 h-full ">
+          <div class="p-20">
+            <ion-card class="br-10 m-0">
+              <ion-img src="assets/img/big_fraise.jpg"></ion-img>
+            </ion-card>
+          </div>
+          <div class="text-center p-20 mt--20">
+            <h3 class="m-auto"><ion-text color="fermdark">{{article.article.nom}}</ion-text></h3>
+            <h6 class="m-0 mt-5"> <ion-text color="fermsecondary">{{article.article.prixU}} Fcfa </ion-text></h6>
+          </div>
+          <div class="info-conent-title2 d-flex ion-align-items-center ion-justify-content-around ion-padding">
+            <div>
+              <button class="custom-button " [routerLink]="['/panier']" (click)="delete(article)"><ion-icon  slot="icon-only"name="trash-outline"></ion-icon></button>
+            </div>     
+           <div class="u--color d-flex ion-align-items-center">
+             <ion-button fill="clear" (click)="add(article)"><ion-icon name="add-outline"></ion-icon></ion-button>
+             <span>{{article.quantiteModif}}</span>
+             <ion-button fill="clear"  (click)="remove(article)"><ion-icon name="remove-outline"></ion-icon></ion-button>
+           </div>
+         </div>
+        </ion-card>
+      </ion-col>
+      </ion-grid>
+    </div>  
+  <div *ngIf="!loaded">
    <ion-card class="content d-flex ion-margin-bottom skeleton-card" *ngFor="let article of forcer" >
     <ion-thumbnail class="image">
       <ion-skeleton-text [animated]="true" class="skeletton-img"></ion-skeleton-text>
@@ -98,7 +125,7 @@
     </div>
   </ion-card>
 </div>
-<div class="checkout ion-margin-top" *ngIf="loaded && present">
+<div class="checkout ion-margin-top" *ngIf="loaded">
   <ion-card class="ion-padding"  mode="md">
     <div class="HT d-flex ion-justify-content-around ion-margin-bottom">
       <ion-title>Total HT</ion-title>
@@ -113,7 +140,7 @@
       <ion-text>{{total}} Fcfa</ion-text>
     </div>
     <div class="container-submit ion-margin-top d-flex ion-justify-content-center">
-      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" [routerLink]="['../paiement']"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
+      <button  class="submit-button d-flex ion-align-items-center ion-justify-content-center  w-full" [routerLink]="['../paiement']" *ngIf="!present"><ion-icon name="arrow-forward-outline"></ion-icon><ion-text color="fermwhite" >BUY</ion-text></button>
     </div>
   </ion-card>
 </div>

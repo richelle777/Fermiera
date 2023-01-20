@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg-content">
+<ion-content class="bg-content" color="fermgray">
 <div class=container>
   <div class="d-flex ion-justify-content-center ion-margin-top">
     <div class="image-user d-flex ion-justify-content-center ion-align-items-center">
@@ -26,11 +26,11 @@
         <ion-label position="stacked" >{{'SETTING.c4' | translate }}</ion-label>
         <ion-input type="Password" placeholder="{{userbody.motDePasse}}"   formControlName="motDePasse"></ion-input>
       </ion-item>
-      <ion-item lines="Password">
+      <ion-item lines="Password"  color="fermgray">
         <ion-label position="stacked" >{{'SETTING.c5' | translate }}</ion-label>
         <ion-input type="number" placeholder="{{userbody.telephone}}"   formControlName="telephone"></ion-input>
       </ion-item>
-      <ion-item detail="true" (click)="toPage()">
+      <ion-item detail="true" (click)="toPage()"  color="fermgray">
         <ion-label>
           <h3>{{'SETTING.c6' | translate }}</h3>
           <p>{{'SETTING.c7' | translate }}</p>
