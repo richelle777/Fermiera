@@ -51,6 +51,9 @@ export class HttpService {
     return this._http.get(this.baseUrl.url+"commande/user/"+id_user,this.baseUrl.httOptions).toPromise()
   }
 
+  async commandesid(){
+    return this._http.get(this.baseUrl.url+"commande/all",this.baseUrl.httOptions).toPromise()
+  }
 
 
   async getInfoCustomer(email){

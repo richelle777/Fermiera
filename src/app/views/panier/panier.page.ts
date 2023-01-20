@@ -30,7 +30,12 @@ export class PanierPage implements OnInit {
   Tab: Article[]=[];
   panier: Panier[]=[];
   total:number;
+  commandeEncours:any;
   _!:number;
+  user:any;
+  userbody:any;
+  listcommande:any;
+  recup:any;
   forcer=new Array<any>;
   ngOnInit() {
     this.numberProduit=0;
@@ -38,11 +43,29 @@ export class PanierPage implements OnInit {
     this.total=0;
   }
   ionViewDidEnter(){
+    const retrieve = localStorage.getItem('customer');
+    // @ts-ignore
+    this.user = JSON.parse(retrieve);
+    this.userbody = this.user.body;
+
+    this.httpSevice.commandesid().then((data)=>{
+      this.listcommande=data;
+      console.log(this.listcommande);
+      for(let commande of this.listcommande){
+        if(this.userbody.id== commande.clientDto.id){
+          console.log(this.userbody,commande.clientDto.id);
+          this.commandeEncours=this.listcommande.filter((item)=> item.statutCommande == "En cours");
+          this.recup=this.commandeEncours[0].id;
+          console.log("commandeEncours",this.recup);
+        }
+      }
+    });
+
     this.httpSevice.listArticleCommande().then((data) => {
       this.commandeArticle = data
       console.log(this.commandeArticle)
-      this.Encours=this.commandeArticle.filter((item) => item.id.idCommande == "C00081");
-      console.log(this.Encours);
+      this.Encours=this.commandeArticle.filter((item) => item.id.idCommande == this.recup);
+      console.log("heoooo",this.Encours);
     })
 
     this.httpSevice.listArticles().then((data:Article[])=>{
