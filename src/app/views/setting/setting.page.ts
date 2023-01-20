@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
+import * as i0 from '@angular/core';
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.page.html',
@@ -27,6 +30,17 @@ export class SettingPage implements OnInit {
     motDePasse: new FormControl(this.userbody.motDePasse),
     telephone: new FormControl(this.userbody.telephone),
   });
+
+  constructor(private authService:AuthService,private router:Router) { }
+  user:any;
+  userbody:any;
+  customer:any;
+  iduser:any;
+  initalsetting:any;
+  onTranslationChange: Subscription | undefined;
+  onLangChange: Subscription | undefined;
+  onDefaultLangChange: Subscription | undefined;
+
   ngOnInit() {
     const retrieve = localStorage.getItem('customer');
     // @ts-ignore

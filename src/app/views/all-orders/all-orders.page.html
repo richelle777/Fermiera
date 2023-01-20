@@ -1,5 +1,5 @@
 <ion-toolbar color="fermgray">
-  <ion-title>Historique des commandes</ion-title>
+  <ion-title> {{'ALL.commandes' | translate}}</ion-title>
   <ion-buttons slot="start">
     <ion-menu-button  color="fermiera-dark-green" ></ion-menu-button>
   </ion-buttons>
@@ -8,10 +8,10 @@
     <ion-accordion-group [multiple]="true" [value]="['first', 'third']">
       <ion-accordion *ngFor="let item of historiquecommande" class="card" value="first">
         <ion-item slot="header">
-          <ion-label > Commande {{item.id}}</ion-label>
+          <ion-label > {{'ALL.text-card' | translate }} {{item.id}}</ion-label>
         </ion-item>
         <div slot="content">
-          <ion-item *ngFor="let article of item.articles" [routerLink]="[ '/follow-order' ]" lines="none">
+          <ion-item *ngFor="let article of item.articles" (click)="goToPage(item)" lines="none">
             <ion-label>
               {{article.nom}}
             </ion-label>
@@ -26,25 +26,5 @@
           </div>
         </div>
       </ion-accordion>
-      <!-- <ion-accordion class="card" value="second">
-        <ion-item slot="header">
-          <ion-label>Commande #002</ion-label>
-        </ion-item>
-        <div slot="content">
-            <ion-item lines="none">
-              <ion-label>
-                Brocoli
-              </ion-label>
-              <ion-badge color="white" slot="end"> 125</ion-badge>
-            </ion-item>
-            <div class="paid">
-              <ion-item lines="none">
-                <ion-badge slot="end"> <h4><b>Total</b> 375Fcfa</h4></ion-badge>
-                <ion-icon  color="danger" slot="start" name="close-circle"></ion-icon>
-                <h5>Not paid</h5>             
-              </ion-item>
-            </div>
-        </div>
-      </ion-accordion> -->
     </ion-accordion-group>
 </ion-content>

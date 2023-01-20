@@ -5,31 +5,31 @@
 <ion-content>
 
   <ion-toolbar>
-    <ion-title>add address</ion-title>
+    <ion-title> {{'ADDR.titre' | translate }} </ion-title>
     <ion-buttons slot="end">
-     <ion-button color="redtrash" (click)="cancel()">Cancel</ion-button>
+     <ion-button color="redtrash" (click)="cancel()"> {{'ADDR.paye' | translate }}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 
   <div class="container-form">
     <div>
-      <ion-input class="input" placeholder="Residence Street" required [(ngModel)]="residence"clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="{{'ADDR.rue' | translate }}t" required [(ngModel)]="residence"clearInput color="fermtertiary">
         <ion-icon name="home-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
     <div>
-      <ion-input class="input" placeholder="Country" required [(ngModel)]="country"clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="{{'ADDR.pays' | translate }}" required [(ngModel)]="country"clearInput color="fermtertiary">
         <ion-icon name="earth-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
 
     <div>
-      <ion-input class="input" placeholder="City" required [(ngModel)]="city"clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="{{'ADDR.ville' | translate }}" required [(ngModel)]="city"clearInput color="fermtertiary">
         <ion-icon name="map-outline" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
     <div>
-      <ion-input class="input" placeholder="Region" [(ngModel)]="region" required clearInput color="fermtertiary">
+      <ion-input class="input" placeholder="{{'ADDR.reg' | translate }}" [(ngModel)]="region" required clearInput color="fermtertiary">
         <ion-icon name="map" color="fermtertiary" class="icon"></ion-icon>
       </ion-input>
     </div>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="container-submit">
-      <button  class="submit-button" (click)="confirm()"><ion-text color="fermwhite"><ion-icon name="paper-plane-outline"></ion-icon>ADD</ion-text></button>
+      <button  class="submit-button" (click)="confirm()"><ion-text color="fermwhite"><ion-icon name="paper-plane-outline"></ion-icon> {{'ADDR.text-card' | translate }} </ion-text></button>
     </div>
    
   </div>

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { HttpService } from 'src/app/services/public1/http.service';
 import { GestionPagesService } from 'src/app/services/public2/gestion-pages.service';
+import { ChangeDetectorRef, OnDestroy, PipeTransform } from '@angular/core';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-add-address',
   templateUrl: './add-address.page.html',
@@ -18,6 +21,11 @@ export class AddAddressPage implements OnInit {
   city:string;
 
   user:any;
+
+  onTranslationChange: Subscription | undefined;
+  onLangChange: Subscription | undefined;
+  onDefaultLangChange: Subscription | undefined;
+
 
 
   constructor(private modalCtrl: ModalController, private httpclient:HttpService, private gest_modal:GestionPagesService, private toastController: ToastController, private http2:HttpService) {
