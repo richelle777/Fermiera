@@ -4,6 +4,12 @@ import { ApiService } from 'src/app/services/public2/api.service';
 import { GestionPagesService } from 'src/app/services/public2/gestion-pages.service';
 import { HttpClient } from '@angular/common/http';
 import { runInThisContext } from 'vm';
+import { ChangeDetectorRef, OnDestroy, PipeTransform } from '@angular/core';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
+import * as i0 from '@angular/core';
+
+
 
 @Component({
   selector: 'app-all-orders',
@@ -28,21 +34,28 @@ export class AllOrdersPage implements OnInit {
   total = 0;
   force:any;
   forcer = new Array<any>;
-  idU: any;
+  onTranslationChange: Subscription | undefined;
+  onLangChange: Subscription | undefined;
+  onDefaultLangChange: Subscription | undefined;
 
   constructor(private router: Router,
               private apiService: ApiService,
               private gestionPage:GestionPagesService,
+              private lng:LanguageService,
              ) { 
-          
-                const retrieve = localStorage.getItem("customer");
-                this.customer = JSON.parse(retrieve);
+              const retrouver = localStorage.getItem("customer");
+              this.customer = JSON.parse(retrouver);
+              this.iduser = this.customer.body.id;
+              console.log(this.iduser);             
               }
 
 
-  goToPage(){
-    const command = this.filteredList.find( order => this.order.id == this.history.id_user);
-    localStorage.setItem('historique',JSON.stringify(command));
+  goToPage(data: any){
+    this.gestionPage.set_OfHistory(1);
+    const retrouver = localStorage.getItem("id");
+    this.iduser = JSON.parse(retrouver);
+    localStorage.setItem("commandeHistory", JSON.stringify(data));
+    
     this.router.navigate(['/follow-order']);
   }
 
@@ -50,15 +63,10 @@ export class AllOrdersPage implements OnInit {
    this.historique()
   }
   
-  retrouve(){
-    const id_user = localStorage.getItem("id");
-    this.iduser = JSON.parse(id_user);
-    
-  }
   
   historique(){
 
-     this.apiService.getCommandHistory("CU0117").then((ele)=>{
+     this.apiService.getCommandHistory(this.iduser).then((ele)=>{
       console.log("history",ele);
       let ke = Object.keys(ele)
       console.log("commande",ke);
@@ -114,16 +122,9 @@ export class AllOrdersPage implements OnInit {
   
 
   
-  
-  
 
   ngOnInit() {
     
-  }
-
-  retrouver(){
-
-
   }
 
 }

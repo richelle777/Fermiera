@@ -4,8 +4,7 @@
       <ion-back-button color="fermprimary"></ion-back-button>
     </ion-buttons>
     <div>
-      <!-- <ion-icon name="arrow-back-outline" ></ion-icon> -->
-      <ion-title class="text-center">your addresses</ion-title>
+      <ion-title class="text-center">{{'ADD.titre' | translate }}</ion-title>
     </div>
    
   </ion-toolbar>
@@ -22,9 +21,6 @@
   </ion-fab>
 
   <div>
-   
-    
-      
       <ion-card *ngFor="let localisation of local">
         <ion-card-header>
           <div class="blocked">

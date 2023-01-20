@@ -12,5 +12,51 @@
         "title-cat1": "Liste des",
         "title-cat2": "categories",
         "title-moto": "Livraison gratuite rapide et efficace"
+    },
+
+    "ALL": {
+        "commandes": "Historique des commandes",
+       "paye": "Payé",
+       "text-card": "Commande",
+        "title-cat1": "Liste des",
+        "title-cat2": "categories",
+        "title-moto": "Livraison gratuite rapide et efficace"
+    },
+
+    "FOLLOW": {
+        "commandes": "Suivi de commande",
+       "paye": "Statut livraison",
+       "text-card": "Commande",
+        "title-cat1": "Liste des",
+        "title-cat2": "categories",
+        "title-moto": "Livraison gratuite rapide et efficace"
+    },
+
+    "ADD": {
+        "titre": "Vos adresses",
+       "paye": "Statut livraison",
+       "text-card": "Commande"
+    },
+
+    "ADDR": {
+        "titre": "Ajouter adresse",
+       "paye": "Annuler",
+       "pays": "Pays",
+       "ville": "Ville",
+       "reg": "Région",
+       "rue": "Rue de résidence",
+       "text-card": "Confirmer"
+    },
+
+    "SETTING": {
+        "titre": "Mon compte",
+       "c1": "Veuillez remplir vos informations",
+       "c2": "Nom & Prénom",
+       "c3": "Email",
+       "c4": "Mot de passe",
+       "c5": "Contact",
+       "c6": "Adresses",
+       "c7":"Détails des  adresses",
+       "c8": "Enregistrer"
     }
 }

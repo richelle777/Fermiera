@@ -12,5 +12,51 @@
        "title-cat1": "List ofs",
         "title-cat2": "categories",
         "title-moto": "Fast and efficient free delivery"
+    },
+
+   "ALL": {
+        "commandes": "View all my Orders",
+       "paye": "Paid",
+       "text-card": "Command",
+        "title-cat1": "Liste des",
+        "title-cat2": "categories",
+        "title-moto": "Livraison gratuite rapide et efficace"
+    },
+
+    "FOLLOW": {
+        "commandes": "Order tracking",
+       "paye": "Delivery status",
+       "text-card": "Command",
+        "title-cat1": "Liste des",
+        "title-cat2": "categories",
+        "title-moto": "Livraison gratuite rapide et efficace"
+    },
+
+    "ADD": {
+        "titre": "Your addresses",
+       "paye": "Statut livraison",
+       "text-card": "Commande"
+    },
+
+    "ADDR": {
+        "titre": "Add an address",
+       "paye": "Cancel",
+       "pays": "Country",
+       "ville": "City",
+       "reg": "Region",
+       "rue": "Residence Street",
+       "text-card": "Confirm"
+    },
+
+    "SETTING": {
+       "titre": "My account",
+       "c1": "Please fill in informations",
+       "c2": "Name & Surname",
+       "c3": "Email",
+       "c4": "Password",
+       "c5": "Contact",
+       "c6": "Address",
+       "c7": "Adress details",
+       "c8": "Confirm"
     }
 }

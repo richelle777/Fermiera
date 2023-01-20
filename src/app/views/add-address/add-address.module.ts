@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,7 +15,8 @@ import { AddAddressPage } from './add-address.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    AddAddressPageRoutingModule
+    AddAddressPageRoutingModule,
+    TranslateModule
   ],
   declarations: [AddAddressPage],
   exports:[AddAddressPage]

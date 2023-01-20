@@ -5,6 +5,9 @@ import { HttpService } from 'src/app/services/public1/http.service';
 import { ApiService } from 'src/app/services/public2/api.service';
 import { GestionPagesService } from 'src/app/services/public2/gestion-pages.service';
 import { AddAddressPage } from '../add-address/add-address.page';
+import { ChangeDetectorRef, OnDestroy, PipeTransform } from '@angular/core';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -18,6 +21,10 @@ export class AddressesPage implements OnInit {
   open:number
   local;
   user:any;
+  onTranslationChange: Subscription | undefined;
+  onLangChange: Subscription | undefined;
+  onDefaultLangChange: Subscription | undefined;
+
   constructor(private modalCtrl: ModalController, private httpservice:ApiService, private router:Router, private gestModal:GestionPagesService, private http2:HttpService) {
    
     

@@ -4,6 +4,10 @@ import { ApiService } from 'src/app/services/public2/api.service';
 import { GestionPagesService } from 'src/app/services/public2/gestion-pages.service';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from "@angular/router";
+import { ChangeDetectorRef, OnDestroy, PipeTransform } from '@angular/core';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
+import * as i0 from '@angular/core';
 
 @Component({
   selector: 'app-follow-order',
@@ -21,6 +25,9 @@ export class FollowOrderPage implements OnInit {
   total = 0;
   force:any;
   forcer = new Array<any>;
+  onTranslationChange: Subscription | undefined;
+  onLangChange: Subscription | undefined;
+  onDefaultLangChange: Subscription | undefined;
 
  
   constructor(private httpclient:ApiService, 
@@ -31,41 +38,56 @@ export class FollowOrderPage implements OnInit {
   }
 
   ionViewDidEnter(){
-    this.comeToHistory = this.gestionPage.get_OfHistory()
+    this.comeToHistory = this.gestionPage.get_OfHistory();
     if (this.comeToHistory == 1){
       this.trouve = false;
-      this.commande = localStorage.getItem('commandeHistory');
-      this.statut = this.commande.statutCommande.replace(/é|è|ê/g,"e");
-      this.statutlivraison = this.commande.livraisonDto.statutLivraison.replace(/é|è|ê/g,"e");
-      console.log('statut',this.statut);
+      this.commande = JSON.parse(localStorage.getItem('commandeHistory'));
+      console.log(this.commande);
+      
+      // this.statut = this.commande.statutCommande.replace(/é|è|ê/g,"e");
+      // this.statutlivraison = this.commande.livraisonDto.statutLivraison.replace(/é|è|ê/g,"e");
+      // console.log('statut',this.statut);
     
-      this.httpclient.getArticlesOfCommande(this.commande.id).then((el)=>{
-      console.log('article',el);
-      this.articles = el;
-     
-      let suivis = new Array<any>;
-      for (let index = 0; index < this.articles.length; index++) {
-        let forceee = {
-
-          "article":this.articles[index].articleDto,
-          "quantite":this.articles[index].articleDto.prixU * this.articles[index].quantity
-        }
-        this.total = this.total + this.articles[index].articleDto.prixU * this.articles[index].quantity
-  
-        suivis.push(forceee)
-        console.log("suivi",suivis);
+      this.httpclient.followCommande(this.commande.id).then((element)=>{
+        console.log('commande infos',element);
+        this.commande = element;
+        this.statut = this.commande.statutCommande.replace(/é|è|ê/g,"e");
+        this.statutlivraison = this.commande.livraisonDto.statutLivraison.replace(/é|è|ê/g,"e")
+        console.log('statut',this.statut);
         
+        this.httpclient.getArticlesOfCommande(this.commande.id).then((el)=>{
+          console.log('article',el);
+          this.articles = el;
+         
+          let suivis = new Array<any>;
+          for (let index = 0; index < this.articles.length; index++) {
+            let forceee = {
+    
+              "article":this.articles[index].articleDto,
+              "quantite":this.articles[index].articleDto.prixU * this.articles[index].quantity
+            }
+            this.total = this.total + this.articles[index].articleDto.prixU * this.articles[index].quantity
+      
+            suivis.push(forceee)
+            console.log("suivi",suivis);
+            
+            
+          }
+    
+          this.forcer = suivis;
+          console.log("suivis",this.forcer);
+          
+          
+        },).catch((erro)=>{
+          console.log('error article',erro);
+          
+        }),
+        this.trouve = true;
+       }).catch((err)=>{
+        console.log('error',err);
+        this.trouve = false;
         
-      }
-
-      this.forcer = suivis;
-      console.log("suivis",this.forcer);
-      
-      
-    },).catch((erro)=>{
-      console.log('error article',erro);
-      
-    })
+       })
       
     }
   }
